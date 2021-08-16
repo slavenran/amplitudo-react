@@ -1,19 +1,19 @@
 import './App.css';
-import ChildElement from './components/childElement/ChildElement';
-import Counter from './components/counter/Counter';
-import IdCard from './components/idCard/IdCard.jsx';
-import MyImage from './components/myImage/MyImage';
-import ReducerExample from './components/reducerExample/ReducerExample';
-import Table from './components/table/Table';
-import Wrapper from './components/wrapper/Wrapper.jsx';
-import MyData from './context/MyData';
-import {logToConsole, logToConsole2, mapArray} from './functions/examples'
-import { wrapperElements } from './constants/wrapperElements';
-import DebouncedSearch from './components/debouncedSearch/DebouncedSearch';
+// import ChildElement from './components/childElement/ChildElement';
+// import Counter from './components/counter/Counter';
+// import IdCard from './components/idCard/IdCard.jsx';
+// import MyImage from './components/myImage/MyImage';
+// import ReducerExample from './components/reducerExample/ReducerExample';
+// import Table from './components/table/Table';
+// import Wrapper from './components/wrapper/Wrapper.jsx';
+// import MyData from './context/MyData';
+// import {logToConsole, logToConsole2, mapArray} from './functions/examples'
+// import { wrapperElements } from './constants/wrapperElements';
+// import DebouncedSearch from './components/debouncedSearch/DebouncedSearch';
 import Movies from './pages/movies/Movies';
 
 function App() {
-  const array = [1, 2, 3];
+  // const array = [1, 2, 3];
 
   // map, includes, some, find, length, filter
 
