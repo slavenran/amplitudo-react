@@ -1,0 +1,18 @@
+.home {
+    margin-top: 20px;
+    font-size: calc(10px + 0.8vmin);
+    padding: 5px 20px;
+    background-color: #ffabab;
+    border: 1px solid #ffbebc;
+    border-radius: 10px;
+    color: #ffffd1;
+}
+
+.home:hover {
+    background-color: #ffcbc1;
+}
+
+.home:active {
+    background-color: red;
+    color: white;
+}

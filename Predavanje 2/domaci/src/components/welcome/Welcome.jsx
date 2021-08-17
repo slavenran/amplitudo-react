@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import QuizData from '../../context/QuizData';
+import './Welcome.css';
 
 const Welcome = () => {
     const {setIsWelcome} = useContext(QuizData);
 
-    return <div>
+    return <div className="container">
         <h3>Welcome to the quiz!</h3>
-        <button onClick={() => setIsWelcome(false)}>Start</button>
+        <button className="button-start" onClick={() => setIsWelcome(false)}>Start</button>
     </div>
 }
 

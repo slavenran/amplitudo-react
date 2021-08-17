@@ -1,0 +1,17 @@
+.button-start {
+    font-size: calc(10px + 0.8vmin);
+    padding: 5px 20px;
+    background-color: #d5aaff;
+    border: 1px solid #ecd4ff;
+    border-radius: 10px;
+    color: #fff5ba;
+}
+
+.button-start:hover {
+    background-color: #c5a3ff;
+}
+
+.button-start:active {
+    background-color: #bffcc6;
+    color: white;
+}

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import QuizData from '../../context/QuizData';
 import Finish from '../finish/Finish';
+import './Question.css';
 
 const Question = () => {
     const {questions, setIsWelcome} = useContext(QuizData);
@@ -33,13 +34,15 @@ const Question = () => {
     if (correctState + incorrectState === 10) {
         return <Finish correct={correctState} incorrect={incorrectState} time={time}/>
     } else {
-        return <div>
-            <div>Time: {time}</div>
-            <div>{currentQuestion.question}</div>
+        return <div className="container">
+            <div className="time">Time: {time}</div>
+            <div className="question">{currentQuestion.question}</div>
+            <div className="answers">
             {
-                currentQuestion.answers.map((item, id) => <button key={id} onClick={() => checkAnswer(item.correct)}>{item.answer}</button>)
+                currentQuestion.answers.map((item, id) => <button className="button-question" key={id} onClick={() => checkAnswer(item.correct)}>{item.answer}</button>)
             }
-            <button onClick={() => setIsWelcome(true)}>Quit</button>
+            </div>
+            <button className="quit" onClick={() => setIsWelcome(true)}>Quit</button>
         </div>
     }
 }
