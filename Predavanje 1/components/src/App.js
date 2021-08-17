@@ -1,4 +1,8 @@
 import './App.css';
+import NavbarTop from './components/navbarTop/NavbarTop';
+import Component1 from './components/styles/component1/Component1';
+import Component2 from './components/styles/component2/Component2';
+import StyledComponent from './components/styles/styledComponent/StyledComponent';
 // import ChildElement from './components/childElement/ChildElement';
 // import Counter from './components/counter/Counter';
 // import IdCard from './components/idCard/IdCard.jsx';
@@ -72,6 +76,13 @@ function App() {
         <ReducerExample/>
         <DebouncedSearch/>
       </MyData.Provider> */}
+
+      <NavbarTop/>
+      <Component1 className="some-class" hasClass/>
+      <Component1 className="some-class"/>
+      <Component2 />
+      <StyledComponent/>
+      <StyledComponent backgroundColor="yellow"/>
 
       <Movies/>
     </div>
