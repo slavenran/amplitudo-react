@@ -1,21 +1,22 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+// import './Table.css';
 
-const TableComponent = ({header, rows, onRowClick}) => {
+const TableComponent = ({ header, rows, onRowClick }) => {
     return <Table striped bordered hover variant="dark">
         <thead>
             <tr className="table-header">
                 {
                     Array.isArray(header) &&
-                        header.map((item, index) => {
-                            return <th key={index}>{item}</th>
-                        })
+                    header.map((item, index) => {
+                        return <th key={index}>{item}</th>
+                    })
                 }
             </tr>
         </thead>
         <tbody>
-        {
-            Array.isArray(rows) && 
+            {
+                Array.isArray(rows) &&
                 rows.map(row => {
                     // console.log(Object.values(row));
                     return <tr className="table-row" key={row?.id} onClick={() => onRowClick(row)}>
@@ -27,7 +28,7 @@ const TableComponent = ({header, rows, onRowClick}) => {
                         }
                     </tr>
                 })
-        }
+            }
         </tbody>
     </Table>
 }

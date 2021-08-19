@@ -2,21 +2,21 @@ import React, { useReducer, useState } from 'react';
 import MoviesData from '../../context/MoviesData';
 import Form from './components/form/Form';
 import Grid from './components/grid/Grid';
-import movies from '../../constants/movies'
+import movies from '../../constants/movies';
 import Button from 'react-bootstrap/Button';
 
 const changeMovies = (state, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'filter':
             return action.data.length > 0 ? movies.filter(item => item.title.includes(action.data)) : movies;
         case 'add':
             const newId = movies.length + 1;
             // state.push(action.data) - pogresno, state ne smiju da se direktno mijenjaju
-            return [...movies, {id: newId, ...action.data}];
+            return [...movies, { id: newId, ...action.data }];
         case 'edit':
             // action.data {id, title, year}
             return state.map(item => {
-                if(item.id === action.data.id) {
+                if (item.id === action.data.id) {
                     return action.data;
                 }
                 return item;
@@ -37,7 +37,7 @@ const Movies = () => {
         setIsGridInView(false);
     }
 
-    return <MoviesData.Provider value={{list: moviesList, dispatch: (e) => dispatch(e)}}>
+    return <MoviesData.Provider value={{ list: moviesList, dispatch: (e) => dispatch(e) }}>
         <div className="container">
             <div>
                 <Button variant="dark" onClick={() => setIsGridInView(true)}>Prikazi filmove</Button>
@@ -47,11 +47,11 @@ const Movies = () => {
             <div>
                 {
                     isGridInView ?
-                    <Grid onRowClick={onRowClick}/> :
-                    <Form returnToGrid={() => {
-                        setIsGridInView(true);
-                        setSelectedRow({});
-                    }} data={selectedRow}/>
+                        <Grid onRowClick={onRowClick} /> :
+                        <Form returnToGrid={() => {
+                            setIsGridInView(true);
+                            setSelectedRow({});
+                        }} data={selectedRow} />
                 }
             </div>
         </div>
