@@ -12,9 +12,11 @@ import EditForm from '../../components/forms/editForm/EditForm';
 const movieReducer = (state, action) => {
     switch (action.type) {
         case "add":
+            // adding new entry and providing id
             const newId = state.length + 1;
             return [...state, { id: newId, ...action.data }];
         case "edit":
+            // finding state item that matches dispatched action
             return state.map(item => {
                 if (action.data[0] === item.id) {
                     return action.data;
@@ -23,6 +25,7 @@ const movieReducer = (state, action) => {
                 }
             })
         case "delete":
+            // returning all items except the one that matches the action
             return state.filter(item => action.id !== item.id);
         default:
             return state;
@@ -43,6 +46,7 @@ const Movies = () => {
 
     const header = ["Id", "Title", "Director", "Actors", "Year"];
 
+    // passing data through route
     const goToEdit = (id, title, director, actors, year) => {
         history.push(`${netData.path}/edit`, { data: { id: id, title: title, director: director, actors: actors, year: year }, targetLink: 'movies' });
     }
@@ -63,6 +67,7 @@ const Movies = () => {
             <EditForm setEdit={() => setEditForm(true)} context={MoviesData} />
         </PrivateRoute>
         {
+            // changes view when entry in the table is clicked (needs fix, has a split second glitch)
             editForm ?
                 <></>
                 :

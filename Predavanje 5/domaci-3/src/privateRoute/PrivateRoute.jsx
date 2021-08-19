@@ -5,7 +5,9 @@ import BasicLayout from '../components/layout/BasicLayout';
 import Forbidden from '../pages/forbidden/Forbidden';
 
 const PrivateRoute = ({component: Component, isPrivate, ...props}) => {
+    // switching layouts based on authentication (will it have navbar or not)
     const Layout = isPrivate ? AuthLayout : BasicLayout;
+    // providing forbidden page to route when users try to enter pages when not logged in
     return <Route {...props} component={() => {
         return isPrivate ? 
         localStorage.getItem('role') ?

@@ -16,6 +16,7 @@ function App() {
         <PrivateRoute path="/books" component={Books} isPrivate />
         <PrivateRoute path="/movies" component={Movies} isPrivate />
         <PrivateRoute path="/people" component={People} isPrivate />
+        {/* redirects user to home page when trying to acces the main link */}
         <PrivateRoute exact path="/"><Redirect to="/home" /></PrivateRoute>
       </Switch>
     </div>
