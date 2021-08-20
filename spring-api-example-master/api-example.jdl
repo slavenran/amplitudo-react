@@ -1,0 +1,43 @@
+entity Movie {
+	name String required
+    directorName String required
+    writerName String required
+    duration Integer required
+    rating Integer required
+}
+
+entity Person {
+	firstName String required
+    lastName String required
+    dateOfBirth LocalDate required
+    age Integer required
+    gender Gender required
+	occupation String required
+}
+
+enum Gender {
+	MALE, FEMALE, OTHER
+}
+
+entity Book{
+	isbn String required
+    writerName String required
+    publisherName String required
+    publishedDate LocalDate required
+    genre String required
+}
+
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+filter *
+
+

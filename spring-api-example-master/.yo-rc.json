@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "me.amplitudo.apiexample"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "apiexample",
+    "packageName": "me.amplitudo.apiexample",
+    "packageFolder": "me/amplitudo/apiexample",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MWIyZTRhMjhlNzc3ZjAyMmI2OWIwMTkyMjMzMWViZjA5ODc5NzRlZTI1OTkzZjA0YzIyODczZTU4OWEzODlkNGY2OTIyNzViOTYzZGI2NmQ0NGVhYzhhMWY0NWZlNWVmYzJiZmYyOGNhZThjN2Q3ZWEzYTUzNTk2MTM4ZDM2Mjg=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "creationTimestamp": 1620746866440,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}

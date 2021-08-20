@@ -4,17 +4,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const AddForm = ({ setView, data, context }) => {
+const AddForm = ({ setView, data, functions, context }) => {
   const { dispatch } = useContext(context);
 
   const header = Object.keys(data);
 
   const add = () => {
-    dispatch({ type: 'add', data: data });
+    dispatch({ type: 'add', data: data});
     setView();
   }
 
-  const handleChange = (e, item) => data[item][1](e.target.value);
+  const handleChange = (e, item) => functions[item](e.target.value);
 
   return <Form style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
     <Row>

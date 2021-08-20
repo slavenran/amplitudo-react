@@ -1,15 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useHistory, useLocation } from 'react-router-dom';
 
-const EditForm = ({ setEdit, context }) => {
+const EditForm = ({context}) => {
     const history = useHistory();
     const location = useLocation();
+    if (!location?.state) {
+        history.goBack();
+    }
     const data = location.state.data;
-    const targetLink = location.state.targetLink;
 
     const [values, setValues] = useState(Object.values(data));
 
@@ -20,7 +22,7 @@ const EditForm = ({ setEdit, context }) => {
     const add = () => {
         console.log(values);
         dispatch({ type: 'edit', data: values });
-        history.push(`/${targetLink}`);
+        history.goBack();
     }
 
     const handleChange = (e, index) => {
@@ -30,10 +32,6 @@ const EditForm = ({ setEdit, context }) => {
             return tempVal;
         });
     };
-
-    useEffect(() => {
-        setEdit();
-    }, [setEdit])
 
     return <Form style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
         <Row>
