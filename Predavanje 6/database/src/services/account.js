@@ -7,4 +7,7 @@ export const login = (data) => {
         url: 'authenticate',
         data: data
       });
+    
+    // another way of doing it
+    // return axiosInstance.post('authenticate', data);
 }

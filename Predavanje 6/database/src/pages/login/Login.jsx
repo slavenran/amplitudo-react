@@ -3,13 +3,17 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import classes from './Login.module.css';
 import { login } from '../../services/account';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
+    const history = useHistory();
     const [loginData, setLoginData] = useState({
         username: '',
         password: '',
         rememberMe: false
     });
+
+    const [errorMessage, setErrorMessage] = useState('');
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -19,9 +23,15 @@ const Login = () => {
                 console.log(response);
                 console.log(response?.data['id_token']);
                 localStorage.setItem('jwt-token', response?.data['id_token']);
+                history.push("/");
             })
             .catch(function (error) {
-                console.log(error);
+                console.log(error?.response?.data);
+                if (error?.response?.data?.detail === "Bad credentials") {
+                    setErrorMessage('Pogresni kredencijali!');
+                } else {
+                    setErrorMessage('Doslo je do greske!');
+                }
             });
     }
 
@@ -61,6 +71,7 @@ const Login = () => {
                         }
                     })} />
             </Form.Group>
+            <span>{errorMessage}</span>
             <Button variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
                 Uloguj se
             </Button>
