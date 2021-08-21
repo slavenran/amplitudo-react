@@ -19,10 +19,11 @@ const headers = [
 
 const Movies = () => {
     const history = useHistory();
+    
     const [rows, setRows] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [refresh, setRefresh] = useState(0);
     const [modalData, setModalData] = useState();
+    const [refresh, setRefresh] = useState(0);
 
     const onDelete = () => {
         if (modalData?.id) {
