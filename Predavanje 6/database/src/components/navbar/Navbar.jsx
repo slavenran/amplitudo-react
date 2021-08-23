@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NavbarTop = () => {
     return <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-            <Navbar.Brand href="#home">Database</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/home">Database</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

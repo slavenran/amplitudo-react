@@ -8,6 +8,11 @@ export const getAllMovies = () => {
         });
 }
 
+export const getAllMoviesWithPagination = (pageSize, currentPage) => {
+    // get count of all movies in DB and then make a second call to get all (count) movies
+    return axiosInstance.get(`movies?size=${pageSize}&page=${currentPage}`, { headers: { Authorization: `Bearer ${localStorage.getItem('jwt-token')}` } });
+}
+
 export const deleteMovie = (movieId) => {
     return axiosInstance.delete(`movies/${movieId}`, { headers: { Authorization: `Bearer ${localStorage.getItem('jwt-token')}` } });
 }

@@ -14,7 +14,7 @@ const initialData = {
     writerName: ''
 }
 
-const MovieForm = ({ id, close }) => {
+const MovieForm = ({ id }) => {
     const [formData, setFormData] = useState(initialData);
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -32,7 +32,6 @@ const MovieForm = ({ id, close }) => {
     // const mutationAdd = useMutation((data) => addMovie(data), {
     //     onSuccess: () => {
     //         // Invalidate and refetch
-    //         close();
     //         queryClient.invalidateQueries('movies');
     //     },
     // });

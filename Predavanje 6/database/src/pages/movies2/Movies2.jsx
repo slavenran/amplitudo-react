@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { useQuery, useQueryClient } from 'react-query';
-import { deleteMovie, getAllMovies } from '../../services/movies';
+import { useQueryClient } from 'react-query';
+import { deleteMovie, getAllMoviesWithPagination } from '../../services/movies';
+import { useModal } from '../../context/ModalContext';
 import PageLayout from '../../components/layouts/PageLayout';
-import TableData from '../../components/table/Table';
 import ModalDelete from '../../components/modal/ModalDelete';
 import Button from 'react-bootstrap/Button';
-import { useModal } from '../../context/ModalContext';
 import MovieForm from './form/MovieForm';
+import TableDataWithPagination from '../../components/table2/Table2';
+import Select from '../../components/select/Select';
 
 const headers = [
     { key: 'id', title: 'Id' },
@@ -18,11 +19,10 @@ const headers = [
 ];
 
 const Movies2 = () => {
-    const { open, close } = useModal();
+    const { open } = useModal();
 
     const [modalData, setModalData] = useState();
 
-    const { data } = useQuery("movies", getAllMovies);
     const queryClient = useQueryClient();
 
     const onDelete = () => {
@@ -38,11 +38,11 @@ const Movies2 = () => {
     }
 
     return <PageLayout>
-        <TableData headers={[...headers,
+        <TableDataWithPagination headers={[...headers,
         {
             key: 'Izmijeni', title: 'Izmijeni', render: (data) => <button onClick={() => open({
                 title: `Promijeni film ${data?.name}`,
-                content: <MovieForm id={data?.id} close={close} />
+                content: <MovieForm id={data?.id} />
             })}>Izmijeni</button>
         },
         {
@@ -53,13 +53,15 @@ const Movies2 = () => {
                 titleName={"film"}
                 onBtnClick={() => setModalData(data)} />
         }]}
-            rows={data?.data} />
+        queryKey="movies"
+        queryFn={getAllMoviesWithPagination} />
         <Button variant="primary" onClick={() => open({
             title: "Dodaj film",
-            content: <MovieForm id="add" close={close} />
+            content: <MovieForm id="add" />
         })}>
             Dodaj
         </Button>
+        <Select optionLabel="directorName" />
     </PageLayout>
 }
 
