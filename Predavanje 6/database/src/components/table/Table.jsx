@@ -7,14 +7,25 @@ const TableData = ({ headers = [], rows = [] }) => {
             <tr>
                 {
                     headers?.length &&
-                    headers.map(item => <th>{item}</th>)
+                    headers.map(item => <th key={item.key}>{item.title}</th>)
                 }
             </tr>
         </thead>
         <tbody>
             {
                 rows?.length &&
-                rows.map(row => <tr>{Object.values(row).map(data => <td>{data}</td>)}</tr>)
+                rows.map(row => {
+                    return <tr key={row?.id}>
+                        {headers.map(headerItem => {
+                            if (headerItem.render) {
+                                return <td key={`${row?.id}${headerItem.key}`}>{headerItem.render(row)}</td>
+                            } else {
+                                return <td key={`${row?.id}${headerItem.key}`}>{row[headerItem.key]}</td>
+                            }
+                            // { Object.values(row).map(data => <td>{data}</td>) }
+                        })}
+                    </tr>
+                })
             }
         </tbody>
     </Table>

@@ -3,7 +3,7 @@ import { deleteMovie, getAllMovies } from '../../services/movies';
 import PageLayout from '../../components/layouts/PageLayout';
 import PageDataLayout from '../../components/layouts/PageDataLayout';
 
-const Movies = () => {
+const Persons = () => {
     const headers = [
         { key: 'id', title: 'Id' },
         { key: 'name', title: 'Naziv' },
@@ -26,4 +26,4 @@ const Movies = () => {
     </PageLayout>
 }
 
-export default Movies;
+export default Persons;

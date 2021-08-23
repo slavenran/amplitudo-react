@@ -11,7 +11,8 @@ const NavbarTop = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link as={Link} to="/movies">Filmove</Nav.Link>
+                    <Nav.Link as={Link} to="/movies">Filmovi</Nav.Link>
+                    <Nav.Link as={Link} to="/movies2">Filmovi 2</Nav.Link>
                     <Nav.Link as={Link} to="/books">Knjige</Nav.Link>
                     <Nav.Link as={Link} to="/people">Osobe</Nav.Link>
                 </Nav>

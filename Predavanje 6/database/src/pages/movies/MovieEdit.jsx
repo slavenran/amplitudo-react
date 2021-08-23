@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { addMovie, editMovie, getMovie } from '../../services/movies';
+import { useMutation, useQueryClient } from 'react-query';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { addMovie, editMovie, getMovie } from '../../services/movies';
 
 const initialData = {
     directorName: '',
@@ -19,25 +20,32 @@ const MovieEdit = () => {
 
     const [formData, setFormData] = useState(initialData);
 
+    const queryClient = useQueryClient();
+
+    const mutationEdit = useMutation((data) => editMovie(data), {
+        onSuccess: () => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries('movies');
+            history.push('/movies');
+        },
+    });
+
+    const mutationAdd = useMutation((data) => addMovie(data), {
+        onSuccess: () => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries('movies');
+            history.push('/movies');
+        },
+    });
+
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
         if (id !== 'add') {
-            editMovie(formData)
-                .then(() => {
-                    history.push('/movies');
-                }).catch((err) => {
-                    console.log(err?.response?.data);
-                });
+            mutationEdit.mutate(formData);
         } else {
             // delete id from object to fit the update action in API
             delete formData.id;
-            addMovie(formData)
-                .then(() => {
-                    history.push('/movies');
-                }).catch((err) => {
-                    console.log(err?.response?.data);
-                });
+            mutationAdd.mutate(formData);
         }
     }
 
