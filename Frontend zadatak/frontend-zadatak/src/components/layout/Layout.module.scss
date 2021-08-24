@@ -1,0 +1,15 @@
+.headerStyle {
+    height: auto !important;
+    color: rgb(109, 110, 112) !important;
+    background: white !important;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    text-align: center !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .headerStyle {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,34 @@
+.titleCol {
+    color: rgb(109, 110, 112) !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+}
+
+.searchIcon {
+    color: rgb(109, 110, 112) !important;
+    margin-right: 5px !important;
+}
+
+.colStyle {
+    text-align: right !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .rowStyle {
+        flex-flow: column !important;
+    }
+    .colStyle {
+        text-align: center !important;
+    }
+}
+
+.inputStyle {
+    background: rgb(246, 247, 249) !important;
+    border-radius: 5px !important;
+    height: 45px;
+    ::placeholder {
+        color: rgb(109, 110, 112, 0.7) !important;
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
