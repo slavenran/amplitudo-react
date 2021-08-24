@@ -1,69 +1,58 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { createMovie, getMovie, updateMovie } from '../../services/movies';
 import { useMutation, useQueryClient } from 'react-query';
 import { useForm } from 'react-hook-form';
+import { useModal } from '../../context/ModalContext';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const initialState = {
-    directorName: '',
-    duration: 0,
-    id: 0,
-    name: '',
-    rating: 0,
-    writerName: ''
-}
+const MoviesForm = ({ id }) => {
 
-const MoviesForm = () => {
-    const { id } = useParams();
-    const history = useHistory();
+    const { close } = useModal();
 
-    const [movieData, setMovieData] = useState(initialState);
-
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue, getValues } = useForm();
 
     const queryClient = useQueryClient();
 
     const mutationAdd = useMutation(createMovie, {
         onSuccess: () => {
-            // Invalidate and refetch
             queryClient.invalidateQueries('movies');
         }
     });
 
     const mutationEdit = useMutation(updateMovie, {
         onSuccess: () => {
-            // Invalidate and refetch
             queryClient.invalidateQueries('movies');
         }
     });
 
-    const submitEntry = () => {
-        console.log(register);
+    const submitEntry = (data) => {
+        close();
         if (id === 'add') {
-            delete movieData.id;
-            mutationAdd.mutate(movieData);
+            mutationAdd.mutate(data);
         } else {
-            mutationEdit.mutate(movieData);
+            mutationEdit.mutate({ ...data, id: getValues("id") });
         }
-        history.push('/movies');
     }
 
     useEffect(() => {
         if (id !== 'add') {
             getMovie(id)
                 .then((r) => {
-                    setMovieData(r?.data);
+                    setValue("id", r?.data?.id);
+                    setValue("name", r?.data?.name);
+                    setValue("rating", r?.data?.rating);
+                    setValue("writerName", r?.data?.writerName);
+                    setValue("directorName", r?.data?.directorName);
+                    setValue("duration", r?.data?.duration);
                 })
                 .catch((err) => {
                     console.log(err);
                 });
         }
-    }, [id])
+    }, [id, setValue])
 
     return <div>
-        Movies {id}
         <Form style={{ textAlign: 'left', margin: 20 }} onSubmit={handleSubmit(submitEntry)}>
             <Form.Group className="mb-3" controlId="name">
                 <Form.Control type="text" placeholder="Name"
@@ -73,75 +62,79 @@ const MoviesForm = () => {
                             message: "Please enter the name"
                         }
                     })}
-                    value={movieData?.name}
-                // onChange={(e) => setMovieData(prevState => {
-                //     return {
-                //         ...prevState,
-                //         name: e.target.value
-                //     }
-                // })} 
+                    onChange={(e) => {
+                        setValue("name", e.target.value);
+                    }}
                 />
                 <span style={{ color: "red" }}>{errors?.name?.message}</span>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="duration">
                 <Form.Control type="number" placeholder="Duration"
-                    value={movieData?.duration}
-                    {...register("duration")}
-                // onChange={(e) => setMovieData(prevState => {
-                //     return {
-                //         ...prevState,
-                //         duration: e.target.value
-                //     }
-                // })} 
+                    {...register("duration", {
+                        required: {
+                            value: true,
+                            message: "Please enter the duration"
+                        }
+                    })}
+                    onChange={(e) => {
+                        setValue("duration", e.target.value);
+                    }}
                 />
                 <span style={{ color: "red" }}>{errors?.duration?.message}</span>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="rating">
                 <Form.Control type="number" placeholder="Rating"
-                    value={movieData?.rating}
-                    {...register("rating")}
-                // onChange={(e) => setMovieData(prevState => {
-                //     return {
-                //         ...prevState,
-                //         rating: e.target.value
-                //     }
-                // })} 
+                    {...register("rating", {
+                        required: {
+                            value: true,
+                            message: "Please enter the rating"
+                        }
+                    })}
+                    onChange={(e) => {
+                        setValue("rating", e.target.value);
+                    }}
                 />
                 <span style={{ color: "red" }}>{errors?.rating?.message}</span>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="writerName">
                 <Form.Control type="text" placeholder="Writer name"
-                    value={movieData?.writerName}
-                    {...register("writerName")}
-                // onChange={(e) => setMovieData(prevState => {
-                //     return {
-                //         ...prevState,
-                //         writerName: e.target.value
-                //     }
-                // })} 
+                    {...register("writerName", {
+                        required: {
+                            value: true,
+                            message: "Please enter the writer name"
+                        }
+                    })}
+                    onChange={(e) => {
+                        setValue("writerName", e.target.value);
+                    }}
                 />
                 <span style={{ color: "red" }}>{errors?.writerName?.message}</span>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="directorName">
                 <Form.Control type="text" placeholder="Director name"
-                    value={movieData?.directorName}
-                    {...register("directorName")}
-                // onChange={(e) => setMovieData(prevState => {
-                //     return {
-                //         ...prevState,
-                //         directorName: e.target.value
-                //     }
-                // })} 
+                    {...register("directorName", {
+                        required: {
+                            value: true,
+                            message: "Please enter the director name"
+                        }
+                    })}
+                    onChange={(e) => {
+                        setValue("directorName", e.target.value);
+                    }}
                 />
                 <span style={{ color: "red" }}>{errors?.directorName?.message}</span>
             </Form.Group>
 
             <Button variant="primary" type="submit">
                 Submit
+            </Button>
+
+            <Button style={{ marginLeft: 5 }} variant="secondary" type="submit" onClick={() => close()}>
+                Cancel
             </Button>
         </Form>
     </div>

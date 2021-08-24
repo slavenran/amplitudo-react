@@ -22,6 +22,9 @@ const NavbarTop = () => {
                     <Nav.Link as={Link} to="/books">Books</Nav.Link>
                     <Nav.Link as={Link} to="/people">People</Nav.Link>
                 </Nav>
+                <Nav className="me-auto">
+                    <Navbar.Text>Signed in as: {localStorage['user']}</Navbar.Text>
+                </Nav>
                 <Nav>
                     <Nav.Link onClick={() => logOut()}>Logout</Nav.Link>
                 </Nav>

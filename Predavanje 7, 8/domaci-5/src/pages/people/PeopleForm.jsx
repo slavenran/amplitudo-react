@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { createPerson, getPerson, updatePerson } from '../../services/people';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -14,8 +14,7 @@ const initialState = {
     occupation: ''
 }
 
-const PeopleForm = () => {
-    const { id } = useParams();
+const PeopleForm = ({ id }) => {
     const history = useHistory();
 
     const [personData, setPersonData] = useState(initialState);
@@ -53,7 +52,6 @@ const PeopleForm = () => {
     }, [id])
 
     return <div>
-        Person {id}
         <Form style={{ textAlign: 'left', margin: 20 }}>
             <Form.Group className="mb-3" controlId="age">
                 <Form.Control type="number" placeholder="Age" value={personData?.age}

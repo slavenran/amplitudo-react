@@ -1,63 +1,52 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { useHistory } from 'react-router';
-import Modal from 'react-bootstrap/Modal';
+import { useModal } from '../../context/ModalContext';
 import Button from 'react-bootstrap/Button';
 import style from './Layout.module.css';
 import CustomTable from '../customTable/CustomTable';
+import ModalDelete from '../modal/ModalDelete';
 
-const PageDataLayout = ({ headers, queryTitle, getAllQuery, deleteInstance }) => {
+const PageDataLayout = ({ headers, queryTitle, getAllQuery, instanceTitle, name, optionalName=null, deleteInstance, form: Form }) => {
 
-    const history = useHistory();
+    const { open } = useModal();
 
     const queryClient = useQueryClient();
     const { data, isLoading } = useQuery(queryTitle, getAllQuery);
 
-    const [showModal, setShowModal] = useState(false);
     const [modalData, setModalData] = useState();
-
-    const handleClose = () => setShowModal(false);
 
     const mutationDelete = useMutation(deleteInstance, {
         onSuccess: () => {
             // Invalidate and refetch
-            handleClose();
             queryClient.invalidateQueries(queryTitle);
         }
     });
 
     return <>
-        <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Delete a movie</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Are you sure you want to delete {modalData?.name}?</Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
-                <Button variant="danger" onClick={() => mutationDelete.mutate(modalData?.id)}>
-                    Delete
-                </Button>
-            </Modal.Footer>
-        </Modal>
         {
             isLoading ? <div>Loading...</div>
                 :
                 <>
                     <div className={style.container}>
                         <CustomTable header={[...headers,
-                        { key: "edit", title: "Edit", render: (data) => <Button variant="danger" onClick={() => history.push(`${queryTitle}/${data.id}`)}>Edit</Button> },
+                        { key: "editModal", title: "Edit", render: (data) => <Button variant="danger" onClick={() => open({
+                            title: `Update ${data[optionalName] ? data[name] + ' ' + data[optionalName] : data[name]}`,
+                            content: <Form id={data.id} />
+                        })}>Edit</Button> },
                         {
-                            key: "delete", title: "Delete", render: (data) => <Button variant="danger" onClick={() => {
-                                setModalData(data);
-                                setShowModal(true);
-                            }}>Delete</Button>
+                            key: "delete", title: "Delete", render: (data) => <ModalDelete
+                                onBtnClick={() => setModalData(data)}
+                                title={instanceTitle}
+                                instanceName={modalData ? `${modalData[name]}${modalData[optionalName] ? ' ' + modalData[optionalName] : ''}` : ''}
+                                deleteFn={() => mutationDelete.mutate(modalData?.id)} />
                         }
                         ]} rows={data?.data} />
                     </div>
                     <div className={style.container}>
-                        <Button variant="dark" onClick={() => history.push(`${queryTitle}/add`)}>Add</Button>
+                        <Button variant="dark" onClick={() => open({
+                            title: `Add a ${instanceTitle}`,
+                            content: <Form id="add" />
+                        })}>Add</Button>
                     </div>
                 </>
         }

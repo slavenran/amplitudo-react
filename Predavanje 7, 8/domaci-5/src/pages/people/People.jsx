@@ -1,6 +1,7 @@
 import React from 'react';
 import { deletePerson, getAllPeople } from '../../services/people';
 import PageDataLayout from '../../components/layout/PageDataLayout';
+import PeopleForm from './PeopleForm';
 
 const headers = [
     {key: "id", title: "Id"},
@@ -17,7 +18,11 @@ const People = () => {
         headers={headers}
         queryTitle="people"
         getAllQuery={getAllPeople}
-        deleteInstance={deletePerson} />
+        instanceTitle="person"
+        name="firstName"
+        optionalName="lastName"
+        deleteInstance={deletePerson}
+        form={PeopleForm} />
 }
 
 export default People;

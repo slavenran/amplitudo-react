@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { login } from '../../services/account';
+import { registerAcc } from '../../services/account';
 import { useForm } from 'react-hook-form';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import style from './Login.module.css';
+import style from './Register.module.css';
 
-const Login = () => {
+const Register = () => {
     const history = useHistory();
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
@@ -14,27 +14,21 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const onLogin = (data) => {
-        login(data)
-            .then((r) => {
+        registerAcc(data)
+            .then(() => {
                 setErrorMessage('');
-                localStorage.setItem('jwt-token', r?.data?.id_token);
-                localStorage.setItem('user', data?.username)
-                history.push('/');
+                history.push('/login');
             })
             .catch((err) => {
                 console.log(err);
-                if (err?.response?.data?.detail === "Bad credentials") {
-                    console.log("Your username and password don't match");
-                    setErrorMessage("Your username and password don't match");
-                } else {
-                    console.log("Something went wrong");
-                    setErrorMessage('');
-                }
+                console.log("Something went wrong");
+                setErrorMessage('');
             });
     }
 
     useEffect(() => {
-        setValue("username", '');
+        setValue("login", '');
+        setValue("email", '');
         setValue("password", '');
         setValue("checkbox", false);
     }, [setValue])
@@ -43,15 +37,29 @@ const Login = () => {
         <Form.Group className="mb-3" controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
             <Form.Control className={style.smallerWidth} type="text" placeholder="Enter username"
-                {...register("username", {
+                {...register("login", {
                     required: {
                         value: true,
                         message: "Enter your username"
                     }
                 })}
-                onClick={(e) => setValue("username", e.target.value)}
+                onClick={(e) => setValue("login", e.target.value)}
             />
             <span style={{ color: "red" }}>{errors?.username?.message}</span>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>E-mail</Form.Label>
+            <Form.Control className={style.smallerWidth} type="email" placeholder="Enter email"
+                {...register("email", {
+                    required: {
+                        value: true,
+                        message: "Enter your email"
+                    }
+                })}
+                onClick={(e) => setValue("email", e.target.value)}
+            />
+            <span style={{ color: "red" }}>{errors?.email?.message}</span>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -76,14 +84,10 @@ const Login = () => {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-            Log in
-        </Button>
-
-        <Button style={{marginLeft: 5}} variant="secondary" type="button" onClick={() => history.push("/register")}>
             Register
         </Button>
         <div style={{ color: "red" }}>{errorMessage}</div>
     </Form>
 }
 
-export default Login;
+export default Register;

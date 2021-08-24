@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { createBook, getBook, updateBook } from '../../services/books';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useModal } from '../../context/ModalContext';
 
 const initialState = {
     genre: '',
@@ -13,9 +14,10 @@ const initialState = {
     writerName: ''
 }
 
-const BooksForm = () => {
-    const { id } = useParams();
+const BooksForm = ({ id }) => {
     const history = useHistory();
+
+    const { close } = useModal();
 
     const [bookData, setBookData] = useState(initialState);
 
@@ -25,6 +27,7 @@ const BooksForm = () => {
             delete bookData.id;
             createBook(bookData)
                 .then(() => {
+                    close();
                     history.push('/books');
                 }).catch((err) => {
                     console.log(err);
@@ -32,6 +35,7 @@ const BooksForm = () => {
         } else {
             updateBook(bookData)
                 .then(() => {
+                    close();
                     history.push('/books');
                 }).catch((err) => {
                     console.log(err);
@@ -52,7 +56,6 @@ const BooksForm = () => {
     }, [id])
 
     return <div>
-        Books {id}
         <Form style={{ textAlign: 'left', margin: 20 }}>
             <Form.Group className="mb-3" controlId="genre">
                 <Form.Control type="text" placeholder="Genre" value={bookData?.genre}

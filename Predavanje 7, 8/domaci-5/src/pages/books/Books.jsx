@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteBook, getAllBooks } from '../../services/books';
 import PageDataLayout from '../../components/layout/PageDataLayout';
+import BooksForm from './BooksForm';
 
 const headers = [
     { key: "id", title: "Id" },
@@ -16,7 +17,10 @@ const Books = () => {
         headers={headers}
         queryTitle="books"
         getAllQuery={getAllBooks}
-        deleteInstance={deleteBook} />
+        instanceTitle="book"
+        name="isbn"
+        deleteInstance={deleteBook}
+        form={BooksForm} />
 }
 
 export default Books;

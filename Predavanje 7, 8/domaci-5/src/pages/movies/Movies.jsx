@@ -1,6 +1,7 @@
 import React from 'react';
 import { deleteMovie, getAllMovies } from '../../services/movies';
 import PageDataLayout from '../../components/layout/PageDataLayout';
+import MoviesForm from './MoviesForm';
 
 const headers = [
     { key: "id", title: "Id" },
@@ -16,7 +17,10 @@ const Movies = () => {
         headers={headers}
         queryTitle="movies"
         getAllQuery={getAllMovies}
-        deleteInstance={deleteMovie} />
+        instanceTitle="movie"
+        name="name"
+        deleteInstance={deleteMovie}
+        form={MoviesForm} />
 }
 
 export default Movies;
