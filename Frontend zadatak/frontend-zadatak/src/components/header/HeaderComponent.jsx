@@ -8,7 +8,7 @@ import ImageComponent from '../image/ImageComponent';
 
 const HeaderComponent = () => {
     return <Row className={style.rowStyle}>
-        <Col span={16}>
+        <Col span={15}>
             <Row className={style.rowStyle} justify="space-between" align="middle">
                 <Col className={style.titleCol} span={8}>
                     Novi folder 1
@@ -20,7 +20,7 @@ const HeaderComponent = () => {
                 </Col>
             </Row>
         </Col>
-        <Col className={style.colStyle} span={8}>
+        <Col className={style.colStyle} span={8} offset={1}>
             <ImageComponent />
         </Col>
     </Row>
