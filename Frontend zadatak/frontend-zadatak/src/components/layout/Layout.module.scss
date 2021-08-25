@@ -1,3 +1,14 @@
+.layoutStyle {
+    height: 100%;
+}
+
+.siderStyle {
+    z-index: 2 !important;
+    background: rgb(248, 251, 255) !important;
+    // min-width: 250px !important;
+    padding: 50px 0px !important;
+}
+
 .headerStyle {
     height: auto !important;
     color: rgb(109, 110, 112) !important;
@@ -5,11 +16,25 @@
     padding-bottom: 15px !important;
     padding-top: 15px !important;
     text-align: center !important;
+    margin-bottom: 2px;
+}
+
+.contentStyle {
+    padding: 20px 50px;
+    background: white;
 }
 
 @media only screen and (max-width: 600px) {
     .headerStyle {
         display: flex;
         justify-content: center;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .siderStyle {
+        min-width: 300px !important;
+        padding: 50px 25px !important;
     }
 }

@@ -1,48 +1,27 @@
 import React from 'react';
 import Layout from 'antd/lib/layout';
-import Menu from 'antd/lib/menu';
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import style from './Layout.module.scss';
 import HeaderComponent from '../header/HeaderComponent';
+import SiderComponent from '../sider/SiderComponent';
+import ContentComponent from '../content/ContentComponent';
 
 const { Header, Sider, Content } = Layout;
 
 const LayoutComponent = () => {
-    return <Layout>
+    return <Layout className={style.layoutStyle}>
         <Sider
+            className={style.siderStyle}
             breakpoint="lg"
             collapsedWidth="0"
-            onBreakpoint={broken => {
-                console.log(broken);
-            }}
-            onCollapse={(collapsed, type) => {
-                console.log(collapsed, type);
-            }}
         >
-            <div className="logo" />
-            <Menu theme="light" mode="inline" defaultSelectedKeys={['4']}>
-                <Menu.Item key="1" icon={<UserOutlined />}>
-                    nav 1
-                </Menu.Item>
-                <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                    nav 2
-                </Menu.Item>
-                <Menu.Item key="3" icon={<UploadOutlined />}>
-                    nav 3
-                </Menu.Item>
-                <Menu.Item key="4" icon={<UserOutlined />}>
-                    nav 4
-                </Menu.Item>
-            </Menu>
+            <SiderComponent />
         </Sider>
         <Layout>
             <Header className={style.headerStyle}>
                 <HeaderComponent />
             </Header>
-            <Content style={{ margin: '24px 16px 0' }}>
-                <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                    content
-                </div>
+            <Content className={style.contentStyle}>
+                <ContentComponent />
             </Content>
         </Layout>
     </Layout>

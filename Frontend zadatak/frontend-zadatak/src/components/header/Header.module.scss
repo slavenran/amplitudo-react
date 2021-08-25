@@ -1,16 +1,18 @@
+$text-color: rgb(109, 110, 112);
+
 .titleCol {
-    color: rgb(109, 110, 112) !important;
+    color: $text-color !important;
     font-weight: 600 !important;
     font-size: 20px !important;
-}
-
-.searchIcon {
-    color: rgb(109, 110, 112) !important;
-    margin-right: 5px !important;
+    text-align: start !important;
 }
 
 .colStyle {
     text-align: right !important;
+}
+
+.rowStyle {
+    min-width: 360px !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -19,6 +21,7 @@
     }
     .colStyle {
         text-align: center !important;
+        align-self: center !important;
     }
 }
 
@@ -31,4 +34,9 @@
         font-size: 14px;
         font-weight: 600;
     }
+}
+
+.searchIcon {
+    color: $text-color !important;
+    margin-right: 5px !important;
 }

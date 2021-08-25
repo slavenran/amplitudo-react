@@ -7,18 +7,20 @@ import style from './Header.module.scss';
 import ImageComponent from '../image/ImageComponent';
 
 const HeaderComponent = () => {
-    return <Row style={{minWidth: 360}} className={style.rowStyle}>
-        <Col flex={1}>
+    return <Row className={style.rowStyle}>
+        <Col span={16}>
             <Row className={style.rowStyle} justify="space-between" align="middle">
-                <Col span={8} className={style.titleCol}>
+                <Col className={style.titleCol} span={8}>
                     Novi folder 1
                 </Col>
                 <Col span={14}>
-                    <Input className={style.inputStyle} size="large" placeholder="Pretraga" bordered={false} prefix={<SearchOutlined className={style.searchIcon} />} />
+                    <Input className={style.inputStyle} size="large"
+                        placeholder="Pretraga" bordered={false}
+                        prefix={<SearchOutlined className={style.searchIcon} />} />
                 </Col>
             </Row>
         </Col>
-        <Col flex={1} className={style.colStyle}>
+        <Col className={style.colStyle} span={8}>
             <ImageComponent />
         </Col>
     </Row>

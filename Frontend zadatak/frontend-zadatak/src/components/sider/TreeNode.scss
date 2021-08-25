@@ -1,0 +1,47 @@
+/* .ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    padding: 4px 0 !important;
+} */
+
+.ant-tree .ant-tree-node-content-wrapper {
+    text-align: left !important;
+    padding: 4px 0 !important;
+    &:hover {
+        
+    }
+}
+.ant-tree.ant-tree-directory .ant-tree-treenode-selected::before {
+    background-color: transparent !important;
+}
+
+.ant-tree.ant-tree-directory .ant-tree-treenode .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    background-color: #2ba7d9 !important;
+    border-radius: 5px;
+    padding-left: 10px !important;
+}
+
+.ant-tree.ant-tree-directory .ant-tree-treenode .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    color: white !important;
+}
+
+.ant-tree.ant-tree-directory .ant-tree-treenode .ant-tree-node-content-wrapper.ant-tree-node-selected .ant-tree-title {
+    color: white;
+}
+
+.ant-tree.ant-tree-directory .ant-tree-treenode .ant-tree-node-content-wrapper {
+    color: #2ba7d9;
+}
+
+.ant-tree.ant-tree-directory .ant-tree-treenode .ant-tree-node-content-wrapper .ant-tree-title {
+    color: rgb(55, 57, 60);
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.ant-tree-switcher {
+    color: transparent !important;
+    width: 0px !important;
+}
+
+.ant-tree-indent-unit {
+    width: 15px !important;
+}

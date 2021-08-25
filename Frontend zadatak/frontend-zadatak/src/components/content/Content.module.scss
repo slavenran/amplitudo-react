@@ -1,0 +1,31 @@
+$text-color: rgb(43, 167, 217);
+
+.titleCol {
+    color                    : $text-color !important;
+    font-weight              : 600 !important;
+    font-size                : 20px !important;
+    text-align               : start !important;
+    text-decoration-line     : underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    margin-bottom: 40px;
+}
+
+.colStyle {
+    text-align: center !important;
+}
+
+.rowStyle {
+    flex-flow: column !important;
+    min-width: 360px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .bigRow {
+        flex-flow: column !important;
+    }
+
+    .colStyle {
+        align-self: center !important;
+    }
+}
