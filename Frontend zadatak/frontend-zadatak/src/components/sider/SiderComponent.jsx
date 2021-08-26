@@ -11,11 +11,12 @@ const { DirectoryTree } = Tree;
 // transform data into antd tree format
 const dataTree = transformJSONToTreeData(folderTree);
 
-const SiderComponent = ({selectFolder}) => {
+const SiderComponent = ({selectFolder, resetFilters}) => {
 
     const onSelect = (keys, info) => {
         // console.log(info?.node);
         selectFolder(info?.node);
+        resetFilters();
     };
 
     const onExpand = () => {

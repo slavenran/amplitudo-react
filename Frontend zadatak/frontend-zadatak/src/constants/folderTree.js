@@ -19,13 +19,14 @@ const folders = {
                 parentFolder: [
                     {
                         id: 200,
-                        name: "Subfolder 1",
-                        sector: "Lorem Ipsum",
+                        name: "Glavni folder",
+                        sector: "Razno",
                         creationDate: "17.06.2019.",
-                        creator: "Marko Markovic",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                        creator: "Slaven Ranisavljevic",
+                        description: "Folder sa raznim dokumentima, najvazniji recepti moje babe.",
                         folderType: "docFolder",
-                        parentFolder: null
+                        parentFolder: null,
+                        files: ["diploma.docx", "prezentacija.pptx", "knjiga.pdf", "tabela.xslx", "diploma2.doc", "tabela2.xsl", "prezentacija2.ppt", "recepti od babe.docx"]
                     },
                     {
                         id: 201,
@@ -44,7 +45,8 @@ const folders = {
                                 creator: "Marko Markovic",
                                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                                 folderType: "docFolder",
-                                parentFolder: null
+                                parentFolder: null,
+                                files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                             },
                             {
                                 id: 2012,
@@ -54,7 +56,8 @@ const folders = {
                                 creator: "Marko Markovic",
                                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                                 folderType: "docFolder",
-                                parentFolder: null
+                                parentFolder: null,
+                                files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                             },
                             {
                                 id: 2013,
@@ -64,7 +67,8 @@ const folders = {
                                 creator: "Marko Markovic",
                                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                                 folderType: "docFolder",
-                                parentFolder: null
+                                parentFolder: null,
+                                files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                             },
                         ]
                     },
@@ -76,7 +80,8 @@ const folders = {
                         creator: "Marko Markovic",
                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         folderType: "docFolder",
-                        parentFolder: null
+                        parentFolder: null,
+                        files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                     },
                     {
                         id: 203,
@@ -86,7 +91,8 @@ const folders = {
                         creator: "Marko Markovic",
                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         folderType: "docFolder",
-                        parentFolder: null
+                        parentFolder: null,
+                        files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                     },
                     {
                         id: 204,
@@ -96,7 +102,8 @@ const folders = {
                         creator: "Marko Markovic",
                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         folderType: "docFolder",
-                        parentFolder: null
+                        parentFolder: null,
+                        files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                     },
                 ]
             },
@@ -116,7 +123,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
             {
@@ -135,7 +143,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
             {
@@ -154,7 +163,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
             {
@@ -173,7 +183,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
             {
@@ -192,7 +203,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
             {
@@ -211,7 +223,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
             {
@@ -230,7 +243,8 @@ const folders = {
                     creator: "Marko Markovic",
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
-                    parentFolder: null
+                    parentFolder: null,
+                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
                 }]
             },
         ]

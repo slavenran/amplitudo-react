@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Divider from 'antd/lib/divider';
-import FileWordFilled from '@ant-design/icons/FileWordFilled';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import UploadOutlined from '@ant-design/icons/UploadOutlined';
 import MailOutlined from '@ant-design/icons/MailOutlined';
 import Button from 'antd/lib/button';
+import FileIcon from '../fileIcon/FileIcon';
 
 function getWindowDimensions() {
     const { innerWidth: width } = window;
     return width;
 }
 
-const FileDetails = ({style}) => {
+const FileDetails = ({ style, fileData }) => {
 
     const [width, setWidth] = useState(getWindowDimensions());
 
@@ -30,13 +30,13 @@ const FileDetails = ({style}) => {
         <Row className={style.rowStyle}>
             <Col>
                 <div className={style.fileDiv}>
-                    <FileWordFilled style={{ fontSize: 30, color: "rgb(43, 167, 217)" }} />
-                    <h3>Lorem ipsum dolorit</h3>
-                    <p>Verzija: </p>
-                    <p>Autor: </p>
-                    <p>Broj: </p>
-                    <p>Tip: </p>
-                    <p>Datum: </p>
+                    <FileIcon fileType={fileData?.docType} />
+                    <h3>{fileData?.name}</h3>
+                    <p>Verzija: {fileData?.version}</p>
+                    <p>Autor: {fileData?.author}</p>
+                    <p>Broj: {fileData?.number}</p>
+                    <p>Tip: {fileData?.type}</p>
+                    <p>Datum: {fileData?.date}</p>
                     <div>
                         <Button className={style.button} size="large" type='primary'>POGLEDAJ DOKUMENT</Button>
                         <Button className={style.smallButton} size="large" icon={<MailOutlined style={{ fontSize: 20 }} />} />
@@ -64,17 +64,17 @@ const FileDetails = ({style}) => {
                 </Row>
                 <div className={style.infoStyle}>
                     <div>Naziv dokumenta</div>
-                    <p>Random</p>
+                    <p>{fileData?.name}</p>
                     <div>Djelovodni broj</div>
-                    <p>Random</p>
+                    <p>{fileData?.effectiveNumber}</p>
                     <div>Opis dokumenta</div>
-                    <p>Random</p>
+                    <p>{fileData?.description}</p>
                     <div>Subjekt</div>
-                    <p>Random</p>
+                    <p>{fileData?.subject}</p>
                     <div>Oznaka dokumenta</div>
-                    <p>Random</p>
+                    <p>{fileData?.documentSign}</p>
                     <div>Nacin prijema</div>
-                    <p>Random</p>
+                    <p>{fileData?.receptionMode}</p>
                 </div>
             </Col>
         </Row>

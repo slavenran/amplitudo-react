@@ -6,7 +6,7 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined'
 import style from './Header.module.scss';
 import ImageComponent from '../image/ImageComponent';
 
-const HeaderComponent = ({ currentFolder, showSearch }) => {
+const HeaderComponent = ({ currentFolder, showSearch, searchValue, setSearch }) => {
     return <Row className={style.rowStyle}>
         <Col span={15}>
             <Row className={style.rowStyle} justify="space-between" align="middle">
@@ -18,6 +18,8 @@ const HeaderComponent = ({ currentFolder, showSearch }) => {
                         showSearch ?
                             <Input className={style.inputStyle} size="large"
                                 placeholder="Pretraga" bordered={false}
+                                value={searchValue}
+                                onChange={(e) => setSearch(e.target.value)}
                                 prefix={<SearchOutlined className={style.searchIcon} />} />
                             :
                             <></>
