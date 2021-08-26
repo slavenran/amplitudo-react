@@ -6,17 +6,22 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined'
 import style from './Header.module.scss';
 import ImageComponent from '../image/ImageComponent';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({ currentFolder, showSearch }) => {
     return <Row className={style.rowStyle}>
         <Col span={15}>
             <Row className={style.rowStyle} justify="space-between" align="middle">
                 <Col className={style.titleCol} span={8}>
-                    Novi folder 1
+                    {currentFolder}
                 </Col>
                 <Col span={14}>
-                    <Input className={style.inputStyle} size="large"
-                        placeholder="Pretraga" bordered={false}
-                        prefix={<SearchOutlined className={style.searchIcon} />} />
+                    {
+                        showSearch ?
+                            <Input className={style.inputStyle} size="large"
+                                placeholder="Pretraga" bordered={false}
+                                prefix={<SearchOutlined className={style.searchIcon} />} />
+                            :
+                            <></>
+                    }
                 </Col>
             </Row>
         </Col>

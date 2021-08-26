@@ -4,20 +4,22 @@ import { FolderOpenFilled, FolderFilled } from '@ant-design/icons';
 import style from './Sider.module.scss';
 import './TreeNode.scss';
 import folderTree from '../../constants/folderTree';
-import transformJSONToTreeData from '../functions/transformJSONToTreeData';
+import transformJSONToTreeData from '../../functions/transformJSONToTreeData';
 
 const { DirectoryTree } = Tree;
 
+// transform data into antd tree format
 const dataTree = transformJSONToTreeData(folderTree);
 
-const SiderComponent = () => {
+const SiderComponent = ({selectFolder}) => {
 
     const onSelect = (keys, info) => {
-        console.log('Trigger Select', keys, info);
+        // console.log(info?.node);
+        selectFolder(info?.node);
     };
 
     const onExpand = () => {
-        console.log('Trigger Expand');
+        // console.log('Trigger Expand');
     };
 
     return <>

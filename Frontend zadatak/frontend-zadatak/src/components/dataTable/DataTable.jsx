@@ -170,7 +170,17 @@ function onChange(pagination, filters, sorter, extra) {
 }
 
 const DataTable = () => {
-  return <Table className={style.table} pagination={false} scroll={{ y: "40vh", x: "max-content" }} columns={columns} dataSource={data} onChange={onChange} />
+  return <Table
+    className={style.table}
+    pagination={false}
+    scroll={{ y: "40vh", x: "max-content" }}
+    columns={columns}
+    dataSource={data}
+    // onChange={onChange}
+    onRow={(record, rowIndex) => {
+      return {
+        onClick: () => console.log(record, rowIndex)
+    }}} />
 }
 
 export default DataTable;
