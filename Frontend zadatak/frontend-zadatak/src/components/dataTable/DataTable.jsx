@@ -1,13 +1,15 @@
 import React from 'react';
 import Table from 'antd/lib/table';
+import style from './Table.module.scss';
+import './Table.scss';
 
 const columns = [
   {
-    title: 'Name',
+    title: 'Naziv dokumenta',
     dataIndex: 'name',
   },
   {
-    title: 'Chinese Score',
+    title: 'Broj',
     dataIndex: 'chinese',
     sorter: {
       compare: (a, b) => a.chinese - b.chinese,
@@ -15,7 +17,7 @@ const columns = [
     },
   },
   {
-    title: 'Math Score',
+    title: 'Status',
     dataIndex: 'math',
     sorter: {
       compare: (a, b) => a.math - b.math,
@@ -23,8 +25,24 @@ const columns = [
     },
   },
   {
-    title: 'English Score',
+    title: 'Autor',
     dataIndex: 'english',
+    sorter: {
+      compare: (a, b) => a.english - b.english,
+      multiple: 1,
+    },
+  },
+  {
+    title: 'Tip',
+    dataIndex: 'type',
+    sorter: {
+      compare: (a, b) => a.english - b.english,
+      multiple: 1,
+    },
+  },
+  {
+    title: 'Datum',
+    dataIndex: 'date',
     sorter: {
       compare: (a, b) => a.english - b.english,
       multiple: 1,
@@ -152,7 +170,7 @@ function onChange(pagination, filters, sorter, extra) {
 }
 
 const DataTable = () => {
-  return <Table pagination={false} scroll={{ y: "40vh" }} columns={columns} dataSource={data} onChange={onChange} />
+  return <Table className={style.table} pagination={false} scroll={{ y: "40vh", x: "max-content" }} columns={columns} dataSource={data} onChange={onChange} />
 }
 
 export default DataTable;

@@ -7,6 +7,7 @@
     background: rgb(248, 251, 255) !important;
     // min-width: 250px !important;
     padding: 50px 0px !important;
+    height: 100%;
 }
 
 .headerStyle {
@@ -20,7 +21,7 @@
 }
 
 .contentStyle {
-    height: auto !important;
+    height: fit-content !important;
     padding: 20px 50px;
     background: white;
 }
