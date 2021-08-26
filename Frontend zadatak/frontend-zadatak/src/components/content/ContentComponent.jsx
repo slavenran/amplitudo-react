@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import style from './Content.module.scss';

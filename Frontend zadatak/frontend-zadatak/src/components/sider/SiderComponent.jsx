@@ -36,39 +36,3 @@ const SiderComponent = ({selectFolder, resetFilters}) => {
 }
 
 export default SiderComponent;
-
-
-
-
-
-
-
-
-const comments = {
-    // const [icon, setIcon] = useState(true);
-
-    // const renderFn = (arr) => {
-    //     console.log('sooos');
-    //     return arr ?
-    //         arr.map(data => <TreeNode
-    //             key={data.key}
-    //             title={data.title}
-    //             children={renderFn(data.children)} />)
-    //         :
-    //         null
-    // }
-
-    // const onExpand = () => {
-    //     console.log(icon);
-    //     setIcon(prevState => !prevState)
-    // }
-    
-    // < Tree
-    //     className = { style.directoryStyle }
-    //     onExpand = { onExpand }
-    //     onSelect = { onSelect } >
-    //     {
-    //         renderFn(treeData)
-    //     }
-    // </Tree >
-}
