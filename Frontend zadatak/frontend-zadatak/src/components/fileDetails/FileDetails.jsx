@@ -46,7 +46,7 @@ const FileDetails = ({ style, fileData }) => {
                 </div>
             </Col>
             <Col>
-                <Row wrap={true} justify="space-between" align="middle">
+                <Row className={style.divider} justify="space-between" align="middle">
                     <Col className={style.infoTitle} span={width >= 1250 ? 9 : 12}>
                         Informacije o dokumentu
                     </Col>

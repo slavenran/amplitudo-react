@@ -28,11 +28,22 @@ $grey-text : rgb(109, 110, 112);
         }
 
         p {
-            max-height: 73px;
-            color: rgb(109, 110, 112, 0.7);
+            max-height   : 73px;
+            color        : rgb(109, 110, 112, 0.7);
             overflow-wrap: break-word;
-            overflow-y: auto;
+            overflow-y   : auto;
+            scrollbar-width: thin;
+            padding-right: 5px;
+
+            @media only screen and (max-width: 800px) {
+                max-height: 200px;
+            }
+
+            @media only screen and (max-width: 600px) {
+                max-height: 150px;
+            }
         }
+
     }
 
     color         : $black-text;
@@ -60,6 +71,12 @@ $grey-text : rgb(109, 110, 112);
         color        : $black-text;
         font-weight  : 600;
         margin-bottom: 1.2vh;
+    }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 601px) {
+    .divider {
+        flex-flow: column;
     }
 }
 
@@ -91,6 +108,26 @@ $grey-text : rgb(109, 110, 112);
 
         .smallButtonLast {
             border-radius: 5px;
+        }
+    }
+
+    @media only screen and (max-width: 800px) and (min-width: 601px) {
+        div {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: center;
+
+            .button {
+                margin-right: 0;
+                // font-size: 0.6em;
+                width: 100%;
+            }
+
+            .smallButton {
+                margin-right: 0;
+            }
         }
     }
 
@@ -126,6 +163,7 @@ $grey-text : rgb(109, 110, 112);
 .colStyle {
     text-align: center !important;
     width     : 100% !important;
+    z-index: 1; // no overlapping on fixed sidebar
 
     .divStyle {
         padding         : 20px 15px;

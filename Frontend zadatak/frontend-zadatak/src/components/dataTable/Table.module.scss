@@ -1,22 +1,33 @@
 $border-color: rgb(43, 167, 217, 0.1);
+$bold-text   : rgb(55, 57, 60);
 
 .table {
     table {
         border-collapse: separate !important;
-        border-spacing : 0 5px !important;
+        border-spacing : 0 7px !important;
 
         thead {
             tr {
                 th {
                     padding         : 0 15px;
                     background-color: transparent;
-                    color           : rgb(55, 57, 60) !important;
+                    color           : $bold-text !important;
                     font-weight     : 600;
                     box-shadow      : 0 0 !important;
                     border-bottom   : transparent;
 
                     &::before {
                         background-color: transparent !important;
+                    }
+
+                    &:first-child {
+                        width    : max-content !important;
+                        min-width: 170px !important;
+                    }
+
+                    &:last-child {
+                        width    : min-content !important;
+                        min-width: 70px !important;
                     }
                 }
             }
@@ -27,8 +38,10 @@ $border-color: rgb(43, 167, 217, 0.1);
                 &:hover {
                     td {
                         background-color: #2ba7d9 !important;
-                        color: white;
+                        color           : white !important;
                     }
+
+                    cursor: pointer;
                 }
 
                 td {
@@ -37,8 +50,11 @@ $border-color: rgb(43, 167, 217, 0.1);
                     background-color: rgb(248, 251, 255);
                     width           : max-content !important;
                     min-width       : 100px !important;
+                    padding: 8px 16px;
 
                     &:first-child {
+                        color                    : $bold-text;
+                        font-weight              : 600;
                         overflow-wrap            : normal !important;
                         min-width                : 200px !important;
                         width                    : 200px !important;
@@ -47,10 +63,17 @@ $border-color: rgb(43, 167, 217, 0.1);
                         border-bottom-left-radius: 10px !important;
                     }
 
+                    &:nth-child(4) {
+                        color      : $bold-text;
+                        font-weight: 600;
+                    }
+
                     &:last-child {
+                        min-width                 : 10px !important;
                         border-right              : 1px solid $border-color;
                         border-top-right-radius   : 10px !important;
                         border-bottom-right-radius: 10px !important;
+                        color                     : rgb(109, 110, 112, 0.7);
                     }
                 }
             }

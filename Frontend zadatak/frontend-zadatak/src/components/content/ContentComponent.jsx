@@ -6,7 +6,7 @@ import DataTable from '../dataTable/DataTable';
 import DirectoryDetails from '../directoryDetails/DirectoryDetails';
 import FileDetails from '../fileDetails/FileDetails';
 
-const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFileData }) => {
+const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFileData, activeRow, setActiveRow }) => {
 
     return <Row className={style.bigRow}>
         <Col className={style.leftCol} span={15}>
@@ -22,7 +22,12 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
                 {
                     showFiles ?
                         <Col className={style.colStyle}>
-                            <DataTable folderData={folderData} searchValue={searchValue} setFileData={(data) => setFileData(data)} />
+                            <DataTable
+                                folderData={folderData}
+                                searchValue={searchValue}
+                                setFileData={(data) => setFileData(data)}
+                                activeRow={activeRow}
+                                setActiveRow={(e) => setActiveRow(e)} />
                         </Col>
                         :
                         <></>

@@ -13,6 +13,7 @@ $text-color: rgb(109, 110, 112);
 
 .rowStyle {
     min-width: 360px;
+    height: fit-content;
 }
 
 @media only screen and (max-width: 600px) {
@@ -23,6 +24,7 @@ $text-color: rgb(109, 110, 112);
     .colStyle {
         text-align: center;
         align-self: center;
+        margin-left: 0px !important;
     }
 }
 

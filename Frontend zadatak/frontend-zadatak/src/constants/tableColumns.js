@@ -43,6 +43,10 @@ const columns = [
             multiple: 1,
         },
     },
+    {
+        title: '',
+        dataIndex: 'dots'
+    }
 ];
 
 export default columns;
