@@ -5,29 +5,32 @@ import './Table.scss';
 import moment from 'moment';
 import columns from '../../constants/tableColumns';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import { useRefresh } from '../../context/RefreshData';
 
 const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
 
   // state of data filtered by search input
   const [data, setData] = useState(null);
 
+  const { refreshData } = useRefresh();
+
   useEffect(() => {
     setData(null);
     setTimeout(() => {
       setData(
-        folderData?.files.map(file => {
+        folderData?.files?.map(file => {
           return {
             ...file,
             key: file?.id,
-            name: file?.name.split(".")[0],
-            docType: file?.name.split(".")[1],
+            name: file?.name,
+            docType: file?.path?.split(".")[1],
             dateFormat: moment(file?.date, "DD-MM-YYYY")._d,
             dots: <EllipsisOutlined style={{ fontSize: 30 }} />
           }
         })
-          .filter(file => file.name.includes(searchValue)));
+          .filter(file => file?.name?.includes(searchValue)));
     }, 200);
-  }, [searchValue, folderData?.files]);
+  }, [searchValue, folderData?.files, refreshData]);
 
   return <Table
     className={style.table}
@@ -40,7 +43,7 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
     onRow={(record, rowIndex) => {
       return {
         onClick: () => {
-          // console.log(record?.key, rowIndex)
+          // console.log(record, rowIndex)
           setFileData(record);
           setActiveRow(record?.key);
         }

@@ -28,8 +28,8 @@ const transformJSONToTreeData = (arr) => {
                 {
                     ...dataObj,
                     children: null,
-                    files: data?.files.map(fileName =>
-                        documentList.filter(data => data?.name === fileName)[0]
+                    files: data?.files.map(fileId =>
+                        documentList.filter(data => data?.id === fileId)[0]
                     )
                 }
                 :

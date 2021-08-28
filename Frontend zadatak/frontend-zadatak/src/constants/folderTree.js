@@ -26,7 +26,7 @@ const folders = {
                         description: "Folder sa raznim dokumentima, najvazniji recepti moje babe.",
                         folderType: "docFolder",
                         parentFolder: null,
-                        files: ["diploma.docx", "prezentacija.pptx", "knjiga.pdf", "tabela.xslx", "diploma2.doc", "tabela2.xsl", "prezentacija2.ppt", "recepti od babe.docx"]
+                        files: [1, 8, 2, 3, 4, 5, 6, 7]
                     },
                     {
                         id: 201,
@@ -46,7 +46,7 @@ const folders = {
                                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                                 folderType: "docFolder",
                                 parentFolder: null,
-                                files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                                files: [7, 6, 4, 3, 2]
                             },
                             {
                                 id: 2012,
@@ -57,7 +57,7 @@ const folders = {
                                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                                 folderType: "docFolder",
                                 parentFolder: null,
-                                files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                                files: [7, 6, 4, 3, 2]
                             },
                             {
                                 id: 2013,
@@ -68,7 +68,7 @@ const folders = {
                                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                                 folderType: "docFolder",
                                 parentFolder: null,
-                                files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                                files: [7, 6, 4, 3, 2]
                             },
                         ]
                     },
@@ -81,7 +81,7 @@ const folders = {
                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         folderType: "docFolder",
                         parentFolder: null,
-                        files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                        files: [7, 6, 4, 3, 2]
                     },
                     {
                         id: 203,
@@ -92,7 +92,7 @@ const folders = {
                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         folderType: "docFolder",
                         parentFolder: null,
-                        files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                        files: [7, 6, 4, 3, 2]
                     },
                     {
                         id: 204,
@@ -103,7 +103,7 @@ const folders = {
                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         folderType: "docFolder",
                         parentFolder: null,
-                        files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                        files: [7, 6, 4, 3, 2]
                     },
                 ]
             },
@@ -124,7 +124,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
             {
@@ -144,7 +144,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
             {
@@ -164,7 +164,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
             {
@@ -184,7 +184,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
             {
@@ -204,7 +204,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
             {
@@ -224,7 +224,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
             {
@@ -244,7 +244,7 @@ const folders = {
                     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                     folderType: "docFolder",
                     parentFolder: null,
-                    files: ["recepti od babe.docx", "prezentacija2.ppt", "diploma2.doc", "tabela.xslx", "knjiga.pdf"]
+                    files: [7, 6, 4, 3, 2]
                 }]
             },
         ]

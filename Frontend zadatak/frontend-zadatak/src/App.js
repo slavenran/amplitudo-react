@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import LayoutComponent from './components/layout/LayoutComponent';
+import RefreshData from './context/RefreshData';
 
 function App() {
   return (
     <div className="App">
-      <LayoutComponent />
+      <RefreshData>
+        <LayoutComponent />
+      </RefreshData>
     </div>
   );
 }

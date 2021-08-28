@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Divider from 'antd/lib/divider';
-import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
-import UploadOutlined from '@ant-design/icons/UploadOutlined';
-import MailOutlined from '@ant-design/icons/MailOutlined';
 import Button from 'antd/lib/button';
 import FileIcon from '../fileIcon/FileIcon';
+import ModalForm from '../modalForm/ModalForm';
+import DetailsTop from './detailsTop/DetailsTop';
+import DetailsBottom from './detailsBottom/DetailsBottom';
+// import FileViewer from 'react-file-viewer';
 
 function getWindowDimensions() {
     const { innerWidth: width } = window;
@@ -15,7 +16,25 @@ function getWindowDimensions() {
 
 const FileDetails = ({ style, fileData }) => {
 
+    const [fileDataState, setFileDataState] = useState(fileData);
     const [width, setWidth] = useState(getWindowDimensions());
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+    useEffect(() => {
+        setFileDataState(fileData);
+    }, [fileData])
 
     useEffect(() => {
         function handleResize() {
@@ -29,55 +48,51 @@ const FileDetails = ({ style, fileData }) => {
     return <div className={style.divStyle}>
         <Row className={style.rowStyle}>
             <Col>
-                <div className={style.fileDiv}>
-                    <FileIcon fileType={fileData?.docType} />
-                    <h3>{fileData?.name}</h3>
-                    <p>Verzija: {fileData?.version}</p>
-                    <p>Autor: {fileData?.author}</p>
-                    <p>Broj: {fileData?.number}</p>
-                    <p>Tip: {fileData?.type}</p>
-                    <p>Datum: {fileData?.date}</p>
-                    <div>
-                        <Button className={style.button} size="large" type='primary'>POGLEDAJ DOKUMENT</Button>
-                        <Button className={style.smallButton} size="large" icon={<MailOutlined style={{ fontSize: 20 }} />} />
-                        <Button className={style.smallButton} size="large" icon={<DownloadOutlined style={{ fontSize: 20 }} />} />
-                        <Button className={style.smallButtonLast} size="large" icon={<UploadOutlined style={{ fontSize: 20 }} />} />
-                    </div>
-                </div>
+                {/* <FileViewer
+                    style={{height: 100}}
+                    fileType={fileData?.docType}
+                    filePath={fileData?.path} /> */}
+
+                <DetailsTop style={style} fileData={fileDataState} />
             </Col>
             <Col>
                 <Row className={style.divider} justify="space-between" align="middle">
-                    <Col className={style.infoTitle} span={width >= 1250 ? 9 : 12}>
+                    <Col className={style.infoTitle} span={width >= 1300 ? 9 : 12}>
                         Informacije o dokumentu
                     </Col>
                     {
-                        width >= 1250 ?
+                        width >= 1300 ?
                             <Col className={style.divider} span={9}>
                                 <Divider />
                             </Col>
                             :
                             <></>
                     }
-                    <Col className={style.editStyle} span={width >= 1250 ? 4 : 12}>
-                        IZMIJENI
+                    <Col span={width >= 1300 ? width >= 1500 ? 5 : 6 : 12}>
+                        <Button className={style.editStyle} type="text" onClick={() => showModal()}>IZMIJENI</Button>
                     </Col>
                 </Row>
-                <div className={style.infoStyle}>
-                    <div>Naziv dokumenta</div>
-                    <p>{fileData?.name}</p>
-                    <div>Djelovodni broj</div>
-                    <p>{fileData?.effectiveNumber}</p>
-                    <div>Opis dokumenta</div>
-                    <p>{fileData?.description}</p>
-                    <div>Subjekt</div>
-                    <p>{fileData?.subject}</p>
-                    <div>Oznaka dokumenta</div>
-                    <p>{fileData?.documentSign}</p>
-                    <div>Nacin prijema</div>
-                    <p>{fileData?.receptionMode}</p>
-                </div>
+                <DetailsBottom style={style} fileData={fileDataState} />
             </Col>
         </Row>
+        {/* <ModalForm
+            isModalVisible={isModalVisible}
+            handleOk={() => handleOk()}
+            handleCancel={() => handleCancel()}
+            fileData={fileData}
+            icon={FileIcon} /> */}
+        {
+            isModalVisible ?
+                <ModalForm
+                    isModalVisible={isModalVisible}
+                    handleOk={() => handleOk()}
+                    handleCancel={() => handleCancel()}
+                    fileData={fileDataState}
+                    setFileDataState={(e) => setFileDataState(e)}
+                    icon={FileIcon} />
+                :
+                <></>
+        }
     </div>
 }
 

@@ -9,12 +9,12 @@ import FileDetails from '../fileDetails/FileDetails';
 const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFileData, activeRow, setActiveRow }) => {
 
     return <Row className={style.bigRow}>
-        <Col className={style.leftCol} span={15}>
+        <Col className={style.leftCol} span={fileData ? 15 : 24}>
             <Row className={style.rowStyle}>
                 {
                     folderData ?
                         <Col className={style.titleCol}>
-                            <DirectoryDetails style={style} folderData={folderData} />
+                            <DirectoryDetails style={style} folderData={folderData} isDoc={showFiles} />
                         </Col>
                         :
                         <></>

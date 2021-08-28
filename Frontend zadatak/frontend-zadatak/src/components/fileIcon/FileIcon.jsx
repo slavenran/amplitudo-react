@@ -11,7 +11,7 @@ const FileIcon = ({ fileType }) => {
         fileType === "ppt" || fileType === "pptx" ?
             <FilePptFilled style={{ fontSize: 30, color: "#d24726" }} />
             :
-            fileType === "xsl" || fileType === "xslx" ?
+            fileType === "xls" || fileType === "xlsx" ?
                 <FileExcelFilled style={{ fontSize: 30, color: "#217346" }} />
                 :
                 fileType === "pdf" ?

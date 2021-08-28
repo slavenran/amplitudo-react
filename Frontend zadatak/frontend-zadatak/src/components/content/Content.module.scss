@@ -28,12 +28,12 @@ $grey-text : rgb(109, 110, 112);
         }
 
         p {
-            max-height   : 73px;
-            color        : rgb(109, 110, 112, 0.7);
-            overflow-wrap: break-word;
-            overflow-y   : auto;
+            max-height     : 73px;
+            color          : rgb(109, 110, 112, 0.7);
+            overflow-wrap  : break-word;
+            overflow-y     : auto;
             scrollbar-width: thin;
-            padding-right: 5px;
+            padding-right  : 5px;
 
             @media only screen and (max-width: 800px) {
                 max-height: 200px;
@@ -76,7 +76,7 @@ $grey-text : rgb(109, 110, 112);
 
 @media only screen and (max-width: 800px) and (min-width: 601px) {
     .divider {
-        flex-flow: column;
+        flex-flow: column !important;
     }
 }
 
@@ -101,6 +101,10 @@ $grey-text : rgb(109, 110, 112);
             }
         }
 
+        a {
+            margin-top: -20px;
+        }
+
         .smallButton {
             margin-right : 15px;
             border-radius: 5px;
@@ -113,16 +117,16 @@ $grey-text : rgb(109, 110, 112);
 
     @media only screen and (max-width: 800px) and (min-width: 601px) {
         div {
-            display: flex;
-            flex-flow: row;
+            display        : flex;
+            flex-flow      : row;
             justify-content: space-between;
-            flex-wrap: wrap;
-            text-align: center;
+            flex-wrap      : wrap;
+            text-align     : center;
 
             .button {
                 margin-right: 0;
                 // font-size: 0.6em;
-                width: 100%;
+                width       : 100%;
             }
 
             .smallButton {
@@ -146,8 +150,8 @@ $grey-text : rgb(109, 110, 112);
 }
 
 .editStyle {
-    color      : $text-color;
-    font-weight: 600;
+    color      : $text-color !important;
+    font-weight: 600 !important;
 }
 
 .leftCol {
@@ -163,7 +167,7 @@ $grey-text : rgb(109, 110, 112);
 .colStyle {
     text-align: center !important;
     width     : 100% !important;
-    z-index: 1; // no overlapping on fixed sidebar
+    z-index   : 1; // no overlapping on fixed sidebar
 
     .divStyle {
         padding         : 20px 15px;

@@ -1,7 +1,7 @@
 const documentList = [
     {
         id: 1,
-        name: "diploma.docx",
+        name: "diploma",
         number: "1689",
         status: "Lorem ipsum",
         version: "2",
@@ -15,11 +15,15 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/diploma.docx",
+        extra: {
+
+        }
     },
     {
         id: 2,
-        name: "knjiga.pdf",
+        name: "knjiga",
         number: "3689",
         status: "Lorem ipsum",
         version: "2",
@@ -33,11 +37,15 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/knjiga.pdf",
+        extra: {
+
+        }
     },
     {
         id: 3,
-        name: "tabela.xslx",
+        name: "tabela",
         number: "4689",
         status: "Lorem ipsum",
         version: "2",
@@ -51,11 +59,15 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/tabela.xlsx",
+        extra: {
+
+        }
     },
     {
         id: 4,
-        name: "diploma2.doc",
+        name: "diploma2",
         number: "5689",
         status: "Lorem ipsum",
         version: "2",
@@ -69,11 +81,15 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/diploma2.doc",
+        extra: {
+
+        }
     },
     {
         id: 5,
-        name: "tabela2.xsl",
+        name: "tabela2",
         number: "6689",
         status: "Lorem ipsum",
         version: "2",
@@ -87,11 +103,15 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/tabela2.xls",
+        extra: {
+
+        }
     },
     {
         id: 6,
-        name: "prezentacija2.ppt",
+        name: "prezentacija2",
         number: "7689",
         status: "Lorem ipsum",
         version: "2",
@@ -105,11 +125,15 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/prezentacija2.ppt",
+        extra: {
+
+        }
     },
     {
         id: 7,
-        name: "recepti od babe.docx",
+        name: "recepti od babe",
         number: "10000",
         status: "U upotrebi",
         version: "1",
@@ -123,11 +147,15 @@ const documentList = [
         receptionMode: "E-mail",
         issueCity: "PG",
         senderDocNumber: "2/5-0/3-2/2",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/recepti od babe.docx",
+        extra: {
+
+        }
     },
     {
         id: 8,
-        name: "prezentacija.pptx",
+        name: "prezentacija",
         number: "2689",
         status: "Lorem ipsum",
         version: "2",
@@ -141,7 +169,11 @@ const documentList = [
         receptionMode: "Ipsuuuuuuum",
         issueCity: "PG",
         senderDocNumber: "01/2-23/1-19",
-        senderDocDate: "12.01.2020."
+        senderDocDate: "12.01.2020.",
+        path: "/documents/prezentacija.pptx",
+        extra: {
+
+        }
     },
 ]
 
