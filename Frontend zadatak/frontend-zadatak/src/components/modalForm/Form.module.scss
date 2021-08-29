@@ -1,3 +1,97 @@
-.mainRow {
-    flex-flow: column;
+$text-color: rgb(97, 98, 99);
+$button-color: #2ba7d9;
+
+.modal {
+    background-color: transparent !important;
+}
+
+.titleCol {
+    display    : flex;
+    align-items: center;
+
+    .titleSpan {
+        margin-left: 10px;
+    }
+}
+
+.details {
+    color: $text-color;
+
+}
+
+.childRow {
+    justify-content: space-between !important;
+    .childCol {
+        display      : flex;
+        flex-flow    : column;
+        margin-bottom: 20px;
+
+        div {
+            color        : $text-color;
+            font-size    : 12px;
+            margin-left  : 10px;
+            margin-bottom: 2px;
+        }
+
+        &:last-child {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.input {
+    align-self   : center;
+    font-weight  : 600;
+    padding      : 8px 11px !important;
+    border-radius: 5px !important;
+    border       : 1px solid rgba(11, 60, 79, 0.1) !important;
+}
+
+.button {
+    display        : flex !important;
+    justify-content: flex-end;
+}
+
+.submit {
+    border          : none !important;
+    border-radius   : 5px !important;
+    padding         : 10px 25px !important;
+    padding-bottom  : 30px !important;
+    background-color: $button-color !important;
+    color           : white !important;
+    font-size       : 13px !important;
+    font-weight     : 600 !important;
+
+    &:hover {
+        background-color: #2496c4 !important;
+    }
+}
+
+.add {
+    border          : 1px solid rgba(97, 98, 99, 0.4) !important;
+    border-radius   : 5px !important;
+    padding         : 11px 25px 30px 12px !important;
+    background-color: transparent !important;
+    color           : rgba(97, 98, 99, 0.6) !important;
+    font-size       : 13px !important;
+    font-weight     : 700 !important;
+
+    &:hover {
+        border-color: $button-color !important;
+        color       : $button-color !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .childRow {
+        flex-flow: column;
+    }
+
+    .headerCols {
+        margin-bottom: 10px;
+    }
+
+    .button {
+        justify-content: center;
+    }
 }

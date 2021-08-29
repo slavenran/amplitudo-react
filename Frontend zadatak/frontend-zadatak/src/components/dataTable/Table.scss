@@ -1,10 +1,20 @@
 .active-row {
-    td {
-        background-color: #2ba7d9 !important;
-        color           : white !important;
-    }
+  td {
+    background-color: #2ba7d9 !important;
+    color           : white !important;
+  }
 }
 
 .ant-table-body {
   scrollbar-width: thin;
+}
+
+.ant-table-placeholder {
+  &:hover {
+    cursor: default !important;
+
+    .ant-table-cell {
+      background-color: rgb(248, 251, 255) !important;
+    }
+  }
 }

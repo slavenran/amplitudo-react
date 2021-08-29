@@ -1,5 +1,3 @@
-import documentList from "../constants/documentList";
-
 const transformJSONToTreeData = (arr) => {
     if (arr?.folder) {
         return [{
@@ -14,31 +12,17 @@ const transformJSONToTreeData = (arr) => {
         }]
     } else if (Array.isArray(arr)) {
         return arr.map(data => {
-            const dataObj = {
+            return {
                 key: data?.id,
                 title: data?.name,
                 sector: data?.sector,
                 creationDate: data?.creationDate,
                 creator: data?.creator,
                 description: data?.description,
-                folderType: data?.folderType
+                folderType: data?.folderType,
+                children: data?.parentFolder === null ? null : transformJSONToTreeData(data?.parentFolder)
             }
-
-            return data?.files ?
-                {
-                    ...dataObj,
-                    children: null,
-                    files: data?.files.map(fileId =>
-                        documentList.filter(data => data?.id === fileId)[0]
-                    )
-                }
-                :
-                {
-                    ...dataObj,
-                    children: data?.parentFolder === null ? null : transformJSONToTreeData(data?.parentFolder)
-                }
-        }
-        )
+        })
     }
     else {
         return null

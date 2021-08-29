@@ -7,7 +7,6 @@ import FileIcon from '../fileIcon/FileIcon';
 import ModalForm from '../modalForm/ModalForm';
 import DetailsTop from './detailsTop/DetailsTop';
 import DetailsBottom from './detailsBottom/DetailsBottom';
-// import FileViewer from 'react-file-viewer';
 
 function getWindowDimensions() {
     const { innerWidth: width } = window;
@@ -48,11 +47,6 @@ const FileDetails = ({ style, fileData }) => {
     return <div className={style.divStyle}>
         <Row className={style.rowStyle}>
             <Col>
-                {/* <FileViewer
-                    style={{height: 100}}
-                    fileType={fileData?.docType}
-                    filePath={fileData?.path} /> */}
-
                 <DetailsTop style={style} fileData={fileDataState} />
             </Col>
             <Col>
@@ -75,12 +69,6 @@ const FileDetails = ({ style, fileData }) => {
                 <DetailsBottom style={style} fileData={fileDataState} />
             </Col>
         </Row>
-        {/* <ModalForm
-            isModalVisible={isModalVisible}
-            handleOk={() => handleOk()}
-            handleCancel={() => handleCancel()}
-            fileData={fileData}
-            icon={FileIcon} /> */}
         {
             isModalVisible ?
                 <ModalForm

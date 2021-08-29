@@ -16,7 +16,7 @@ const LayoutComponent = () => {
     const [activeRow, setActiveRow] = useState(null);           // state for holding active row info for styling
 
     const changeFolder = (folderNode) => {
-        // on folder click, set all current folder data
+        // on folder click, show current folder info
         setCurrentFolder(folderNode);
 
         // show files table when folder is not an organizer 

@@ -45,12 +45,13 @@ $bold-text   : rgb(55, 57, 60);
                 }
 
                 td {
+                    transition      : 0.2s !important;
                     border-top      : 1px solid $border-color;
                     border-bottom   : 1px solid $border-color;
                     background-color: rgb(248, 251, 255);
                     width           : max-content !important;
                     min-width       : 100px !important;
-                    padding: 8px 16px;
+                    padding         : 8px 16px;
 
                     &:first-child {
                         color                    : $bold-text;

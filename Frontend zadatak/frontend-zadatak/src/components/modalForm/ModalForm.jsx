@@ -1,64 +1,89 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useRefresh } from '../../context/RefreshData';
 import Modal from 'antd/lib/modal';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Button from 'antd/lib/button';
 import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
+import Divider from 'antd/lib/divider';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import style from './Form.module.scss';
-import { useForm } from 'react-hook-form';
-import { useRefresh } from '../../context/RefreshData';
+import './Modal.scss';
+
+function getWindowDimensions() {
+    const { innerWidth: width } = window;
+    return width;
+}
 
 const ModalForm = ({ isModalVisible, handleOk, handleCancel, fileData, icon: Icon, setFileDataState }) => {
+    const [width, setWidth] = useState(getWindowDimensions());
+
     // console.log(fileData?.name);
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
     const { setRefreshData } = useRefresh();
 
+    const num = width > 800 ? 7 : 24;
+
     const onSubmit = (data) => {
-        console.log(data);
+        localStorage.setItem("documentList", JSON.stringify(JSON.parse(localStorage.getItem("documentList")).map(file => {
+            return file?.id === fileData?.id ?
+                { ...file, ...data }
+                :
+                file
+        })));
+        setFileDataState({ ...fileData, ...data });
         setRefreshData();
-        setFileDataState({...fileData, ...data});
         handleOk();
     }
 
     useEffect(() => {
-        setValue("name", fileData?.name);
-        setValue("effectiveNumber", fileData?.effectiveNumber);
-        setValue("description", fileData?.description);
-        setValue("subject", fileData?.subject);
-        setValue("documentSign", fileData?.documentSign);
-        setValue("receptionMode", fileData?.receptionMode);
-    }, [])
+        function handleResize() {
+            setWidth(getWindowDimensions());
+        }
 
-    return <Modal title="" width={"70vw"} visible={isModalVisible} onCancel={handleCancel} footer={null} closable={false}>
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        setValue("name", fileData?.name);
+        Object.entries(fileData?.extra)?.map(([key, value]) => setValue(key, value?.value));
+    }, [fileData.description, fileData.documentSign, fileData.effectiveNumber, fileData?.extra, fileData?.name, fileData.receptionMode, fileData.subject, setValue])
+
+    return <Modal className={style.modal} title="" width={"70vw"} visible={isModalVisible} onCancel={handleCancel} footer={null} closable={false}>
         <Form onFinish={handleSubmit(onSubmit)}>
             <Row className={style.mainRow}>
                 <Col span={24}>
-                    <Row>
-                        <Col span={8}>
-                            <Icon fileType={fileData?.docType} />
-                            <span>{fileData?.name}</span>
+                    <Row className={style.childRow}>
+                        <Col className={style.headerCols} span={num}>
+                            <div className={style.titleCol}>
+                                <Icon fileType={fileData?.docType} />
+                                <span className={style.titleSpan}>{fileData?.name}</span>
+                            </div>
                         </Col>
-                        <Col span={8}>
-                            <p>Verzija: {fileData?.version}</p>
-                            <p>Autor: {fileData?.author} </p>
+                        <Col className={`${style.details} ${style.headerCols}`} span={num}>
+                            <div>Verzija: {fileData?.version}</div>
+                            <div>Autor: {fileData?.author} </div>
                         </Col>
-                        <Col span={8}>
-                            <Button>+ DODAJ NOVO POLJE</Button>
+                        <Col className={`${style.button} ${style.headerCols}`} span={num}>
+                            <Button className={style.add}><PlusOutlined style={{fontSize: 16, marginRight: 10}} />DODAJ NOVO POLJE</Button>
                         </Col>
+                        <Divider plain />
                     </Row>
                 </Col>
                 <Col span={24}>
-                    <Row>
-                        <Col span={8}>
+                    <Row className={style.childRow}>
+                        <Col className={style.childCol} span={num}>
                             <div>Naziv dokumenta</div>
-                            <Input style={{ width: '70%' }} type="text"
-                                placeholder="Document title" defaultValue={fileData?.name}
+                            <Input className={style.input} type="text"
+                                placeholder="Naziv dokumenta" defaultValue={fileData?.name}
                                 {...register("name", {
                                     required: {
                                         value: true,
-                                        message: "You must fill the name"
+                                        message: "Morate popuniti naziv dokumenta"
                                     }
                                 })}
                                 onChange={(e) => {
@@ -67,91 +92,31 @@ const ModalForm = ({ isModalVisible, handleOk, handleCancel, fileData, icon: Ico
                             />
                             <div style={{ color: "red" }}>{errors?.name?.message}</div>
                         </Col>
-                        <Col span={8}>
-                            <div>Djelovodni broj</div>
-                            <Input style={{ width: '70%' }} type="text"
-                                placeholder="Effective number" defaultValue={fileData?.effectiveNumber}
-                                {...register("effectiveNumber", {
-                                    required: {
-                                        value: true,
-                                        message: "You must fill the effective number"
-                                    }
-                                })}
-                                onChange={(e) => {
-                                    setValue("effectiveNumber", e.target.value);
-                                }}
-                            />
-                            <div style={{ color: "red" }}>{errors?.name?.message}</div>
-                        </Col>
-                        <Col span={8}>
-                            <div>Opis dokumenta</div>
-                            <Input style={{ width: '70%' }} type="text"
-                                placeholder="Doc description" defaultValue={fileData?.description}
-                                {...register("description", {
-                                    required: {
-                                        value: true,
-                                        message: "You must fill the description"
-                                    }
-                                })}
-                                onChange={(e) => {
-                                    setValue("description", e.target.value);
-                                }}
-                            />
-                            <div style={{ color: "red" }}>{errors?.name?.message}</div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span={8}>
-                            <div>Subjekt</div>
-                            <Input style={{ width: '70%' }} type="text"
-                                placeholder="Subject" defaultValue={fileData?.subject}
-                                {...register("subject", {
-                                    required: {
-                                        value: true,
-                                        message: "You must fill the subject"
-                                    }
-                                })}
-                                onChange={(e) => {
-                                    setValue("subject", e.target.value);
-                                }}
-                            />
-                            <div style={{ color: "red" }}>{errors?.name?.message}</div>
-                        </Col>
-                        <Col span={8}>
-                            <div>Oznaka dokumenta</div>
-                            <Input style={{ width: '70%' }} type="text"
-                                placeholder="Document sign" defaultValue={fileData?.documentSign}
-                                {...register("documentSign", {
-                                    required: {
-                                        value: true,
-                                        message: "You must fill the document sign"
-                                    }
-                                })}
-                                onChange={(e) => {
-                                    setValue("documentSign", e.target.value);
-                                }}
-                            />
-                            <div style={{ color: "red" }}>{errors?.name?.message}</div>
-                        </Col>
-                        <Col span={8}>
-                            <div>Nacin prijema</div>
-                            <Input style={{ width: '70%' }} type="text"
-                                placeholder="Reception mode" defaultValue={fileData?.receptionMode}
-                                {...register("receptionMode", {
-                                    required: {
-                                        value: true,
-                                        message: "You must fill the reception mode"
-                                    }
-                                })}
-                                onChange={(e) => {
-                                    setValue("receptionMode", e.target.value);
-                                }}
-                            />
-                            <div style={{ color: "red" }}>{errors?.name?.message}</div>
-                        </Col>
+                        {
+                            Object.entries(fileData?.extra)?.map(([key, value]) => {
+                                return <Col className={style.childCol} span={num}>
+                                    <div>{value?.title}</div>
+                                    <Input className={style.input} type="text"
+                                        placeholder={value?.title} defaultValue={value?.value}
+                                        {...register(key, {
+                                            required: {
+                                                value: true,
+                                                message: `Morate popuniti ${value?.title.toLowerCase()}`
+                                            }
+                                        })}
+                                        onChange={(e) => {
+                                            setValue(key, e.target.value);
+                                        }}
+                                    />
+                                    <div style={{ color: "red" }}>{errors[key]?.message}</div>
+                                </Col>
+                            })
+                        }
                     </Row>
                 </Col>
-                <Button style={{ alignSelf: "flex-end" }} htmlType="submit">SACUVAJ IZMJENE</Button>
+                <Col className={style.button} span={24}>
+                    <Button className={style.submit} htmlType="submit">SACUVAJ IZMJENE</Button>
+                </Col>
             </Row>
         </Form>
     </Modal>
