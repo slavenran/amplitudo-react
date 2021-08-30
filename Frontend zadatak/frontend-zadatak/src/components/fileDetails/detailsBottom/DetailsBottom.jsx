@@ -8,7 +8,7 @@ const DetailsBottom = ({ style, fileData }) => {
             Object.entries(fileData?.extra)?.map(([_, value]) => {
                 return <>
                     <div>{value?.title}</div>
-                    <p>{value?.value}</p>
+                    <p>{value?.type === "checkbox" ? value?.value === true ? "Da" : "Ne" : value?.value}</p>
                 </>
             })
         }

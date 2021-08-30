@@ -6,7 +6,7 @@ import './Table.scss';
 import moment from 'moment';
 import columns from '../../constants/tableColumns';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-
+import setFileMaxId from '../../functions/fileMaxId';
 
 const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
   // state of data filtered by search input
@@ -20,6 +20,7 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
       setData(
         JSON.parse(localStorage.getItem("documentList")).filter(file => file?.parentDir === folderData?.key)
           .map(file => {
+            setFileMaxId(file?.id);
             return {
               ...file,
               key: file?.id,
@@ -28,7 +29,7 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
               dateFormat: moment(file?.date, "DD-MM-YYYY")._d,
               dots: <EllipsisOutlined style={{ fontSize: 30 }} />
             }
-          }).filter(file => file?.name?.includes(searchValue)))
+          }).filter(file => file?.name.toLowerCase()?.includes(searchValue.toLowerCase())))
     }, 200);
   }, [searchValue, folderData?.key, refreshData]);
 

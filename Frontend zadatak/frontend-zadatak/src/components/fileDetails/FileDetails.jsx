@@ -7,16 +7,12 @@ import FileIcon from '../fileIcon/FileIcon';
 import ModalForm from '../modalForm/ModalForm';
 import DetailsTop from './detailsTop/DetailsTop';
 import DetailsBottom from './detailsBottom/DetailsBottom';
+import getWindowDimensions from '../../functions/getWindowDimesions';
 
-function getWindowDimensions() {
-    const { innerWidth: width } = window;
-    return width;
-}
+const FileDetails = ({ style, fileData, setFileData }) => {
 
-const FileDetails = ({ style, fileData }) => {
-
-    const [fileDataState, setFileDataState] = useState(fileData);
-    const [width, setWidth] = useState(getWindowDimensions());
+    // const [fileDataState, setFileDataState] = useState(fileData);
+    const [width, setWidth] = useState(getWindowDimensions);
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const showModal = () => {
@@ -31,13 +27,13 @@ const FileDetails = ({ style, fileData }) => {
         setIsModalVisible(false);
     };
 
-    useEffect(() => {
-        setFileDataState(fileData);
-    }, [fileData])
+    // useEffect(() => {
+    //     setFileDataState(fileData);
+    // }, [fileData])
 
     useEffect(() => {
         function handleResize() {
-            setWidth(getWindowDimensions());
+            setWidth(getWindowDimensions);
         }
 
         window.addEventListener('resize', handleResize);
@@ -47,7 +43,7 @@ const FileDetails = ({ style, fileData }) => {
     return <div className={style.divStyle}>
         <Row className={style.rowStyle}>
             <Col>
-                <DetailsTop style={style} fileData={fileDataState} />
+                <DetailsTop style={style} fileData={fileData} />
             </Col>
             <Col>
                 <Row className={style.divider} justify="space-between" align="middle">
@@ -66,7 +62,7 @@ const FileDetails = ({ style, fileData }) => {
                         <Button className={style.editStyle} type="text" onClick={() => showModal()}>IZMIJENI</Button>
                     </Col>
                 </Row>
-                <DetailsBottom style={style} fileData={fileDataState} />
+                <DetailsBottom style={style} fileData={fileData} />
             </Col>
         </Row>
         {
@@ -75,8 +71,8 @@ const FileDetails = ({ style, fileData }) => {
                     isModalVisible={isModalVisible}
                     handleOk={() => handleOk()}
                     handleCancel={() => handleCancel()}
-                    fileData={fileDataState}
-                    setFileDataState={(e) => setFileDataState(e)}
+                    fileData={fileData}
+                    setFileData={(e) => setFileData(e)}
                     icon={FileIcon} />
                 :
                 <></>

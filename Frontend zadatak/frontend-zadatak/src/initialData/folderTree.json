@@ -18,7 +18,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 200,
+                        "id": 3,
                         "name": "Glavni folder",
                         "sector": "Razno",
                         "creationDate": "17.06.2019.",
@@ -28,7 +28,7 @@
                         "parentFolder": null
                     },
                     {
-                        "id": 201,
+                        "id": 4,
                         "name": "Subfolder 2",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -37,7 +37,7 @@
                         "folderType": "organizer",
                         "parentFolder": [
                             {
-                                "id": 2011,
+                                "id": 5,
                                 "name": "Novi folder 1",
                                 "sector": "Lorem Ipsum",
                                 "creationDate": "17.06.2019.",
@@ -47,7 +47,7 @@
                                 "parentFolder": null
                             },
                             {
-                                "id": 2012,
+                                "id": 6,
                                 "name": "2",
                                 "sector": "Lorem Ipsum",
                                 "creationDate": "17.06.2019.",
@@ -57,7 +57,7 @@
                                 "parentFolder": null
                             },
                             {
-                                "id": 2013,
+                                "id": 7,
                                 "name": "3",
                                 "sector": "Lorem Ipsum",
                                 "creationDate": "17.06.2019.",
@@ -69,7 +69,7 @@
                         ]
                     },
                     {
-                        "id": 202,
+                        "id": 8,
                         "name": "Subfolder 3",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -79,7 +79,7 @@
                         "parentFolder": null
                     },
                     {
-                        "id": 203,
+                        "id": 9,
                         "name": "Subfolder 4",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -89,7 +89,7 @@
                         "parentFolder": null
                     },
                     {
-                        "id": 204,
+                        "id": 10,
                         "name": "Subfolder 5",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -101,7 +101,7 @@
                 ]
             },
             {
-                "id": 3,
+                "id": 11,
                 "name": "Folder 2",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -110,7 +110,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 300,
+                        "id": 12,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -122,7 +122,7 @@
                 ]
             },
             {
-                "id": 4,
+                "id": 13,
                 "name": "Folder 3",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -131,7 +131,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 400,
+                        "id": 14,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -143,7 +143,7 @@
                 ]
             },
             {
-                "id": 5,
+                "id": 15,
                 "name": "Folder 4",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -152,7 +152,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 500,
+                        "id": 16,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -164,7 +164,7 @@
                 ]
             },
             {
-                "id": 6,
+                "id": 17,
                 "name": "Folder 5",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -173,7 +173,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 600,
+                        "id": 18,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -185,7 +185,7 @@
                 ]
             },
             {
-                "id": 7,
+                "id": 19,
                 "name": "Folder 6",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -194,7 +194,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 700,
+                        "id": 20,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -206,7 +206,7 @@
                 ]
             },
             {
-                "id": 8,
+                "id": 21,
                 "name": "Folder 7",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -215,7 +215,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 800,
+                        "id": 22,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",
@@ -227,7 +227,7 @@
                 ]
             },
             {
-                "id": 9,
+                "id": 23,
                 "name": "Folder 8",
                 "sector": "Lorem Ipsum",
                 "creationDate": "17.06.2019.",
@@ -236,7 +236,7 @@
                 "folderType": "organizer",
                 "parentFolder": [
                     {
-                        "id": 900,
+                        "id": 24,
                         "name": "Subfolder 1",
                         "sector": "Lorem Ipsum",
                         "creationDate": "17.06.2019.",

@@ -37,7 +37,7 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
         {
             fileData ?
                 <Col className={`${style.colStyle} ${style.rightCol}`} span={8} offset={1}>
-                    <FileDetails style={style} fileData={fileData} />
+                    <FileDetails style={style} fileData={fileData} setFileData={(data) => setFileData(data)} />
                 </Col>
                 :
                 <></>

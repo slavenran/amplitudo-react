@@ -1,15 +1,13 @@
 .directoryStyle {
   background   : rgb(248, 251, 255) !important;
+  
   // for fixed sidebar
   max-height   : 100%;
   overflow-y   : scroll;
   scrollbar-width: thin;
+
   // to hide the scrollbar
   // width        : 100%;
   padding-right: 10px !important;
   // box-sizing   : content-box !important;
-}
-
-.iconStyle {
-  font-size: 20px !important;
 }

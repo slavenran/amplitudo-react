@@ -1,8 +1,17 @@
+import { FolderOpenFilled, FolderFilled } from '@ant-design/icons';
+
+import setFolderMaxId from "./folderMaxId"
+
 const transformJSONToTreeData = (arr) => {
+    const closedFolder = <FolderFilled style={{fontSize: 20}} />;
+    const openFolder = <FolderOpenFilled style={{fontSize: 20}} />;
+
     if (arr?.folder) {
+        setFolderMaxId(arr?.folder?.id);
         return [{
             key: arr?.folder?.id,
             title: arr?.folder?.name,
+            icon: ({ expanded }) => (expanded ? openFolder : closedFolder),
             sector: arr?.folder?.sector,
             creationDate: arr?.folder?.creationDate,
             creator: arr?.folder?.creator,
@@ -12,9 +21,17 @@ const transformJSONToTreeData = (arr) => {
         }]
     } else if (Array.isArray(arr)) {
         return arr.map(data => {
+            setFolderMaxId(data?.id);
+
+            const icon = data?.folderType === "organizer" ?
+                ({ expanded }) => (expanded ? openFolder : closedFolder)
+                :
+                ({ selected }) => (selected ? openFolder : closedFolder)
+
             return {
                 key: data?.id,
                 title: data?.name,
+                icon: icon,
                 sector: data?.sector,
                 creationDate: data?.creationDate,
                 creator: data?.creator,
