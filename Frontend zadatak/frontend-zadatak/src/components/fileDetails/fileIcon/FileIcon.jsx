@@ -5,6 +5,7 @@ import FilePptFilled from '@ant-design/icons/FilePptFilled';
 import FileExcelFilled from '@ant-design/icons/FileExcelFilled';
 
 const FileIcon = ({ fileType }) => {
+    // choose icon based on file extension
     return fileType === "doc" || fileType === "docx" ?
         <FileWordFilled style={{ fontSize: 30, color: "#2b579a" }} />
         :

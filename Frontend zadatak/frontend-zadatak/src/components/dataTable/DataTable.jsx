@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useRefresh } from '../../context/RefreshData';
+import { useRefresh } from '../../context/RefreshTableContext';
 import Table from 'antd/lib/table';
 import style from './Table.module.scss';
 import './Table.scss';
@@ -9,15 +9,16 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import setFileMaxId from '../../functions/fileMaxId';
 
 const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
-  // state of data filtered by search input
-  const [data, setData] = useState(null);
 
-  const { refreshData } = useRefresh();
+  const [data, setData] = useState(null); // state of data filtered by search input
+
+  const { refreshData } = useRefresh(); // refresh table after update, search or folder switch
 
   useEffect(() => {
     setData(null);
     setTimeout(() => {
       setData(
+        // convert local doc data to antd readable format
         JSON.parse(localStorage.getItem("documentList")).filter(file => file?.parentDir === folderData?.key)
           .map(file => {
             setFileMaxId(file?.id);
@@ -40,12 +41,12 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
     columns={columns}
     dataSource={data}
     loading={data ? false : true}
-    rowClassName={(record) => record?.key === activeRow ? 'data-row active-row' : 'data-row'}
-    onRow={(record, rowIndex) => {
+    rowClassName={(record) => record?.key === activeRow ? 'data-row active-row' : 'data-row'} // logic for active row style
+    onRow={(record, _) => {
       return record ?
         {
           onClick: () => {
-            // console.log(record, rowIndex)
+            // update states on row click
             setFileData(record);
             setActiveRow(record?.key);
           }

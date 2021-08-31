@@ -1,10 +1,13 @@
 import React from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
+import style from '../content/Content.module.scss';
 
-const DirectoryDetails = ({style, folderData, isDoc}) => {
+const DirectoryDetails = ({ folderData, isDoc }) => {
     return <>
-        <div className={style.titleStyle}>{isDoc ? "DOKUMENTI" : "ORGANIZACIONI FOLDER"}</div>
+        <div className={style.titleStyle}>
+            {isDoc ? "DOKUMENTI" : "ORGANIZACIONI FOLDER"}
+        </div>
         <Row className={style.cardStyle}>
             <Col span={10}>
                 <div>Naziv foldera: <span>{folderData?.title}</span></div>

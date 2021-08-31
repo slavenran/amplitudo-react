@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import LayoutComponent from './components/layout/LayoutComponent';
-import RefreshData from './context/RefreshData';
+import RefreshContext from './context/RefreshTableContext';
+import WidthContext from './context/WidthContext';
 import folderTree from './initialData/folderTree.json';
 import documentList from './initialData/documentList.json';
 
@@ -12,9 +13,11 @@ function App() {
   }
 
   return <div className="App">
-    <RefreshData>
-      <LayoutComponent />
-    </RefreshData>
+    <RefreshContext>
+      <WidthContext>
+        <LayoutComponent />
+      </WidthContext>
+    </RefreshContext>
   </div>
 }
 

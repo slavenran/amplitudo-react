@@ -1,0 +1,12 @@
+$bg-color: rgb(43, 167, 217);
+
+.submit {
+    border-radius   : 5px !important;
+    background-color: $bg-color !important;
+    font-size       : 14px !important;
+    font-weight     : 600 !important;
+
+    &:hover {
+        background-color: rgb(43, 167, 217, 0.9) !important;
+    }
+}

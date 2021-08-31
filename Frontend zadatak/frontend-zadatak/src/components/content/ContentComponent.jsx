@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
-import style from './Content.module.scss';
+import Button from 'antd/lib/button';
 import DataTable from '../dataTable/DataTable';
 import DirectoryDetails from '../directoryDetails/DirectoryDetails';
 import FileDetails from '../fileDetails/FileDetails';
+import FormModal from '../modal/FormModal';
+import CreateFileForm from '../createForms/createFileForm/CreateFileForm';
+import style from './Content.module.scss';
+import DataTableInfi from '../dataTable/DataTableInfi';
 
 const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFileData, activeRow, setActiveRow }) => {
+
+    const [showModal, setShowModal] = useState(false);    // state for file creation modal
 
     return <Row className={style.bigRow}>
         <Col className={style.leftCol} span={fileData ? 15 : 24}>
@@ -14,7 +20,7 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
                 {
                     folderData ?
                         <Col className={style.titleCol}>
-                            <DirectoryDetails style={style} folderData={folderData} isDoc={showFiles} />
+                            <DirectoryDetails folderData={folderData} isDoc={showFiles} />
                         </Col>
                         :
                         <></>
@@ -22,12 +28,13 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
                 {
                     showFiles ?
                         <Col className={style.colStyle}>
-                            <DataTable
+                            <DataTableInfi
                                 folderData={folderData}
                                 searchValue={searchValue}
                                 setFileData={(data) => setFileData(data)}
                                 activeRow={activeRow}
                                 setActiveRow={(e) => setActiveRow(e)} />
+                            <Button style={{ borderRadius: 5, marginTop: 10 }} onClick={() => setShowModal(true)}>Napravi novi fajl</Button>
                         </Col>
                         :
                         <></>
@@ -37,8 +44,16 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
         {
             fileData ?
                 <Col className={`${style.colStyle} ${style.rightCol}`} span={8} offset={1}>
-                    <FileDetails style={style} fileData={fileData} setFileData={(data) => setFileData(data)} />
+                    <FileDetails fileData={fileData} setFileData={(data) => setFileData(data)} />
                 </Col>
+                :
+                <></>
+        }
+        {
+            showModal ?
+                <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
+                    <CreateFileForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
+                </FormModal>
                 :
                 <></>
         }

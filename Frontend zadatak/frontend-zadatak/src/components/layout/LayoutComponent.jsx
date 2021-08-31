@@ -4,7 +4,9 @@ import style from './Layout.module.scss';
 import HeaderComponent from '../header/HeaderComponent';
 import SiderComponent from '../sider/SiderComponent';
 import ContentComponent from '../content/ContentComponent';
-// import { useRefresh } from '../../context/RefreshData';
+import CreateFolderForm from '../createForms/createFolderForm/CreateFolderForm';
+import FormModal from '../modal/FormModal';
+import SiderComponentAsync from '../sider/SiderComponentAsync';
 
 const { Header, Sider, Content } = Layout;
 
@@ -14,6 +16,12 @@ const LayoutComponent = () => {
     const [fileData, setFileData] = useState(false);            // state for setting the view of file data
     const [searchValue, setSearchValue] = useState('');         // state for filtering the table
     const [activeRow, setActiveRow] = useState(null);           // state for holding active row info for styling
+
+    // states for managing folder menu and adding of new folder
+    const [showMenu, setShowMenu] = useState(false);
+    const [menuData, setMenuData] = useState();
+    const [showModal, setShowModal] = useState(false);
+    const [folderData, setFolderData] = useState(null);
 
     const changeFolder = (folderNode) => {
         // on folder click, show current folder info
@@ -42,7 +50,18 @@ const LayoutComponent = () => {
             <div style={{ width: "100%", height: "100%", overflow: 'hidden' }}>
                 <SiderComponent
                     selectFolder={(title) => changeFolder(title)}
-                    resetFilters={() => resetFilters()} />
+                    resetFilters={() => resetFilters()}
+                    setMenu={(e) => setShowMenu(e)}
+                    setMenuData={(e) => setMenuData(e)}
+                    setShow={(e) => setShowModal(e)}
+                    setFolderData={(e) => setFolderData(e)} />
+                {/* <SiderComponentAsync
+                    selectFolder={(title) => changeFolder(title)}
+                    resetFilters={() => resetFilters()}
+                    setMenu={(e) => setShowMenu(e)}
+                    setMenuData={(e) => setMenuData(e)}
+                    setShow={(e) => setShowModal(e)}
+                    setFolderData={(e) => setFolderData(e)} /> */}
             </div>
         </Sider>
         <Layout className={style.contentLayout}>
@@ -64,6 +83,14 @@ const LayoutComponent = () => {
                     setActiveRow={(e) => setActiveRow(e)} />
             </Content>
         </Layout>
+        {showMenu ? menuData : <></>}
+        {showModal ?
+            <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
+                <CreateFolderForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
+            </FormModal>
+            :
+            <></>
+        }
     </Layout>
 }
 

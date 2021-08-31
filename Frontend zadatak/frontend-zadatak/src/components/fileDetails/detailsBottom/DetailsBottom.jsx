@@ -1,6 +1,7 @@
 import React from 'react';
+import style from '../../content/Content.module.scss'
 
-const DetailsBottom = ({ style, fileData }) => {
+const DetailsBottom = ({ fileData }) => {
     return <div className={style.infoStyle}>
         <div>Naziv dokumenta</div>
         <p>{fileData?.name}</p>

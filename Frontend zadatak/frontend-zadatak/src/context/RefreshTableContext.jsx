@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 
-const RefreshData = createContext();
+const RefreshTableContext = createContext();
 
-const RefreshProvider = ({ children }) => {
+const RefreshTableProvider = ({ children }) => {
     const [refreshData, setRefreshData] = useState(false);
 
     const refresh = {
@@ -10,15 +10,15 @@ const RefreshProvider = ({ children }) => {
         setRefreshData: () => setRefreshData(prevState => !prevState)
     }
 
-    return <RefreshData.Provider value={refresh}>
+    return <RefreshTableContext.Provider value={refresh}>
         {children}
-    </RefreshData.Provider>
+    </RefreshTableContext.Provider>
 };
 
 export const useRefresh = () => {
-    const refresh = useContext(RefreshData);
+    const refresh = useContext(RefreshTableContext);
 
     return refresh;
 }
 
-export default RefreshProvider;
+export default RefreshTableProvider;

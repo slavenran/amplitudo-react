@@ -1,5 +1,5 @@
 $text-color: rgb(97, 98, 99);
-$button-color: #2ba7d9;
+$button-color: rgb(43, 167, 217);
 
 .modal {
     background-color: transparent !important;
@@ -62,7 +62,7 @@ $button-color: #2ba7d9;
     font-weight     : 600 !important;
 
     &:hover {
-        background-color: #2496c4 !important;
+        background-color: rgb(43, 167, 217, 0.9) !important;
     }
 }
 
