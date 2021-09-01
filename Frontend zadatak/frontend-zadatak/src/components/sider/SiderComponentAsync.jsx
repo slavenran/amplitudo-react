@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useRefresh } from '../../context/RefreshTableContext';
-import transformJSONToTreeData from '../../functions/transformJSONToTreeData';
 import Tree from 'antd/lib/tree';
 import { FolderOpenFilled, FolderFilled } from '@ant-design/icons';
 import style from './Sider.module.scss';
@@ -114,15 +113,9 @@ const SiderComponentAsync = ({ selectFolder, resetFilters, setMenu, setMenuData,
         }
     }
 
-    const onExpand = () => {
-        // async loading here
-    };
-
     return <DirectoryTree
         className={style.directoryStyle}
-        // multiple
         onSelect={onSelect}
-        // onExpand={onExpand}
         onRightClick={onRightClick}
         loadData={onLoadData}
         treeData={treeData}

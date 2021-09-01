@@ -4,7 +4,6 @@ import style from './Layout.module.scss';
 import HeaderComponent from '../header/HeaderComponent';
 import SiderComponent from '../sider/SiderComponent';
 import ContentComponent from '../content/ContentComponent';
-import SiderComponentAsync from '../sider/SiderComponentAsync';
 
 const { Header, Sider, Content } = Layout;
 

@@ -35,15 +35,10 @@ const SiderComponent = ({ selectFolder, resetFilters, setMenu, setMenuData, setS
         }
     }
 
-    const onExpand = () => {
-        // async loading here
-    };
-
     return <DirectoryTree
         className={style.directoryStyle}
         multiple
         onSelect={onSelect}
-        onExpand={onExpand}
         onRightClick={onRightClick}
         treeData={dataTree}
     />
