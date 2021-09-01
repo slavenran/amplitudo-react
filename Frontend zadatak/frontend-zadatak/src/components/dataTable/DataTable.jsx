@@ -43,7 +43,7 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
     loading={data ? false : true}
     rowClassName={(record) => record?.key === activeRow ? 'data-row active-row' : 'data-row'} // logic for active row style
     onRow={(record, _) => {
-      return record ?
+      return record &&
         {
           onClick: () => {
             // update states on row click
@@ -51,8 +51,6 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
             setActiveRow(record?.key);
           }
         }
-        :
-        null
     }} />
 }
 

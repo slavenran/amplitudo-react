@@ -3,6 +3,7 @@ import FileWordFilled from '@ant-design/icons/FileWordFilled';
 import FilePdfFilled from '@ant-design/icons/FilePdfFilled';
 import FilePptFilled from '@ant-design/icons/FilePptFilled';
 import FileExcelFilled from '@ant-design/icons/FileExcelFilled';
+import FileUnknownFilled from '@ant-design/icons/FileUnknownFilled';
 
 const FileIcon = ({ fileType }) => {
     // choose icon based on file extension
@@ -18,7 +19,7 @@ const FileIcon = ({ fileType }) => {
                 fileType === "pdf" ?
                     <FilePdfFilled style={{ fontSize: 30, color: "#f40f02" }} />
                     :
-                    <></>
+                    <FileUnknownFilled style={{ fontSize: 30, color: "rgb(94, 123, 137)" }} />
 }
 
 export default FileIcon;

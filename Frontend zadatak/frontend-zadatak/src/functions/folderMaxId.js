@@ -2,7 +2,6 @@
 let folderMaxId = 0;
 
 export const getFolderMaxId = () => {
-    console.log(folderMaxId)
     return folderMaxId;
 }
 

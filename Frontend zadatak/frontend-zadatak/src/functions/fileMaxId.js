@@ -2,7 +2,6 @@
 let fileMaxId = 0;
 
 export const getFileMaxId = () => {
-  console.log(fileMaxId);
   return fileMaxId;
 }
 

@@ -27,12 +27,10 @@ const FileDetails = ({ fileData, setFileData }) => {
                         Informacije o dokumentu
                     </Col>
                     {
-                        width >= 1300 ?
+                        width >= 1300 &&
                             <Col className={style.divider} span={9}>
                                 <Divider />
                             </Col>
-                            :
-                            <></>
                     }
                     <Col span={width >= 1300 ? width >= 1500 ? 5 : 6 : 12}>
                         <Button className={style.editStyle} type="text" onClick={() => setIsModalVisible(true)}>IZMIJENI</Button>
@@ -42,7 +40,7 @@ const FileDetails = ({ fileData, setFileData }) => {
             </Col>
         </Row>
         {
-            isModalVisible ?
+            isModalVisible &&
                 <FileModalForm
                     isModalVisible={isModalVisible}
                     handleOk={() => setIsModalVisible(false)}
@@ -50,8 +48,6 @@ const FileDetails = ({ fileData, setFileData }) => {
                     fileData={fileData}
                     setFileData={(e) => setFileData(e)}
                     icon={FileIcon} />
-                :
-                <></>
         }
     </div>
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { getFileMaxId } from '../../../functions/fileMaxId';
+import setFileMaxId, { getFileMaxId } from '../../../functions/fileMaxId';
 import { useRefresh } from '../../../context/RefreshTableContext';
 import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
@@ -25,6 +25,7 @@ const CreateFileForm = ({ setShowModal, folderData }) => {
             extra: {}
         }]));
 
+        setFileMaxId(getFileMaxId() + 1);
         setRefreshData();
         setShowModal(false); // close modal
     }

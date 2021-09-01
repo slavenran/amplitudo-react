@@ -17,15 +17,13 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
         <Col className={style.leftCol} span={fileData ? 15 : 24}>
             <Row className={style.rowStyle}>
                 {
-                    folderData ?
+                    folderData &&
                         <Col className={style.titleCol}>
                             <DirectoryDetails folderData={folderData} isDoc={showFiles} />
                         </Col>
-                        :
-                        <></>
                 }
                 {
-                    showFiles ?
+                    showFiles &&
                         <Col className={style.colStyle}>
                             <DataTableInfinite
                                 folderData={folderData}
@@ -35,26 +33,20 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
                                 setActiveRow={(e) => setActiveRow(e)} />
                             <Button style={{ borderRadius: 5, marginTop: 10 }} onClick={() => setShowModal(true)}>Napravi novi fajl</Button>
                         </Col>
-                        :
-                        <></>
                 }
             </Row>
         </Col>
         {
-            fileData ?
+            fileData &&
                 <Col className={`${style.colStyle} ${style.rightCol}`} span={8} offset={1}>
                     <FileDetails fileData={fileData} setFileData={(data) => setFileData(data)} />
                 </Col>
-                :
-                <></>
         }
         {
-            showModal ?
+            showModal &&
                 <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
                     <CreateFileForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
                 </FormModal>
-                :
-                <></>
         }
     </Row>
 }

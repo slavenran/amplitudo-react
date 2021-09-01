@@ -18,7 +18,7 @@ const NewField = ({ num, register, setValue, errors }) => {
     return <>
         <NewFieldModal showAddField={showAddField} setShowAddField={(e) => setShowAddField(e)} setFieldData={(e) => setNewFieldData(e)} />
         {
-            newFieldData ?
+            newFieldData &&
                 <Col className={style.childCol} span={num} >
                     <div>{newFieldData?.fieldName}</div>
                     <Input className={style.input} type={newFieldData?.inputType}
@@ -36,8 +36,6 @@ const NewField = ({ num, register, setValue, errors }) => {
                     />
                     <div style={{ color: "red" }}>{errors[newFieldData?.fieldName?.toLowerCase()]?.message}</div>
                 </Col >
-                :
-                <></>
         }
     </>
 }

@@ -1,4 +1,4 @@
-import { getFolderMaxId } from "./folderMaxId"
+import setFolderMaxId, { getFolderMaxId } from "./folderMaxId"
 import moment from "moment"
 
 const updateTree = (arr, data, folderData) => {
@@ -28,6 +28,7 @@ const updateTree = (arr, data, folderData) => {
         }
     }
     iterateTree(arr);
+    setFolderMaxId(getFolderMaxId() + 1);
 }
 
 export default updateTree;

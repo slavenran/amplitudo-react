@@ -13,10 +13,7 @@ const scrollConfig = {
     x: true,
 };
 
-const DataTableInfinite = ({
-    debug = false,
-    scroll = scrollConfig,
-    folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
+const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
 
     const [lastId, setLastId] = useState(5);    // preserves the last fetched id of document array
     const [allData, setAllData] = useState();   // complete data
@@ -81,12 +78,12 @@ const DataTableInfinite = ({
             columns={columns}
             dataSource={data}
             loading={allData ? false : true}
-            scroll={scroll}
+            scroll={scrollConfig}
             components={vt}
             rowClassName={(record) => record?.key === activeRow ? 'data-row active-row' : 'data-row'}
             pagination={false}
             onRow={(record, _) => {
-                return record ?
+                return record &&
                     {
                         onClick: () => {
                             // update states on row click
@@ -94,8 +91,6 @@ const DataTableInfinite = ({
                             setActiveRow(record?.key);
                         }
                     }
-                    :
-                    null
             }} />
     );
 }

@@ -83,13 +83,11 @@ const LayoutComponent = () => {
                     setActiveRow={(e) => setActiveRow(e)} />
             </Content>
         </Layout>
-        {showMenu ? menuData : <></>}
-        {showModal ?
+        {showMenu && menuData}
+        {showModal &&
             <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
                 <CreateFolderForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
             </FormModal>
-            :
-            <></>
         }
     </Layout>
 }

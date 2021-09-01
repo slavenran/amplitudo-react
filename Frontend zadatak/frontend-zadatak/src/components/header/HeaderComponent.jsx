@@ -15,14 +15,12 @@ const HeaderComponent = ({ currentFolder, showSearch, searchValue, setSearch }) 
                 </Col>
                 <Col span={14}>
                     {
-                        showSearch ?
+                        showSearch &&
                             <Input className={style.inputStyle} size="large"
                                 placeholder="Pretraga" bordered={false}
                                 value={searchValue}
                                 onChange={(e) => setSearch(e.target.value)}
                                 prefix={<SearchOutlined className={style.searchIcon} />} />
-                            :
-                            <></>
                     }
                 </Col>
             </Row>
