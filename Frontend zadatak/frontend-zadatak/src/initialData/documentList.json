@@ -367,14 +367,14 @@
     },
     {
         "id": 10,
-        "name": "recepti od babe",
+        "name": "recepti od strine",
         "number": 432,
         "status": "U upotrebi",
         "version": 1,
         "author": "Slaven Ranisavljevic",
         "type": "Tekstualni dokument",
         "date": "25.03.2022.",
-        "path": "/documents/recepti od babe.docx",
+        "path": "/documents/recepti od strine.docx",
         "parentDir": 3,
         "extra": {
             "effectiveNumber": {
@@ -413,7 +413,7 @@
         "author": "John",
         "type": "Xls dokument",
         "date": "25.03.2022.",
-        "path": "/documents/pogledani filmovi.xls",
+        "path": "/documents/pogledani filmovi.xlsx",
         "parentDir": 3,
         "extra": {
             "effectiveNumber": {
@@ -452,7 +452,7 @@
         "author": "Slaven Ranisavljevic",
         "type": "Tekstualni dokument",
         "date": "25.03.2022.",
-        "path": "/documents/najbolje papuce.doc",
+        "path": "/documents/najbolje papuce.docx",
         "parentDir": 3,
         "extra": {
             "effectiveNumber": {
