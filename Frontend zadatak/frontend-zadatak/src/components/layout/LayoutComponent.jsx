@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import Layout from 'antd/lib/layout';
 import style from './Layout.module.scss';
 import HeaderComponent from '../header/HeaderComponent';
 import SiderComponent from '../sider/SiderComponent';
 import ContentComponent from '../content/ContentComponent';
-import CreateFolderForm from '../createForms/createFolderForm/CreateFolderForm';
-import FormModal from '../modal/FormModal';
 import SiderComponentAsync from '../sider/SiderComponentAsync';
 
 const { Header, Sider, Content } = Layout;
+
+const FormModal = React.lazy(() => import('../modal/FormModal'));
+const CreateFolderForm = React.lazy(() => import('../createForms/createFolderForm/CreateFolderForm'));
 
 const LayoutComponent = () => {
     const [currentFolder, setCurrentFolder] = useState(false);  // state for setting the view for folder data
@@ -74,8 +75,8 @@ const LayoutComponent = () => {
             </Header>
             <Content className={style.contentStyle}>
                 <ContentComponent
-                    folderData={currentFolder}
                     showFiles={showTable}
+                    folderData={currentFolder}
                     searchValue={searchValue}
                     fileData={fileData}
                     setFileData={(data) => setFileData(data)}
@@ -85,9 +86,13 @@ const LayoutComponent = () => {
         </Layout>
         {showMenu && menuData}
         {showModal &&
-            <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
-                <CreateFolderForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
-            </FormModal>
+            <Suspense fallback={<></>}>
+                <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <CreateFolderForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
+                    </Suspense>
+                </FormModal>
+            </Suspense>
         }
     </Layout>
 }

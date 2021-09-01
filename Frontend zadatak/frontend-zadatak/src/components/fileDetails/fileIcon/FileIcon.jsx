@@ -4,6 +4,7 @@ import FilePdfFilled from '@ant-design/icons/FilePdfFilled';
 import FilePptFilled from '@ant-design/icons/FilePptFilled';
 import FileExcelFilled from '@ant-design/icons/FileExcelFilled';
 import FileUnknownFilled from '@ant-design/icons/FileUnknownFilled';
+import PropTypes from 'prop-types';
 
 const FileIcon = ({ fileType }) => {
     // choose icon based on file extension
@@ -23,3 +24,7 @@ const FileIcon = ({ fileType }) => {
 }
 
 export default FileIcon;
+
+FileIcon.propTypes = {
+    fileType: PropTypes.string.isRequired
+}

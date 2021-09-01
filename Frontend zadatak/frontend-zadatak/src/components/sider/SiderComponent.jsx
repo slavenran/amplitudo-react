@@ -3,6 +3,7 @@ import { useRefresh } from '../../context/RefreshTableContext';
 import transformJSONToTreeData from '../../functions/transformJSONToTreeData';
 import FolderMenu from '../folderMenu/FolderMenu';
 import Tree from 'antd/lib/tree';
+import PropTypes from 'prop-types';
 import style from './Sider.module.scss';
 import './TreeNode.scss';
 
@@ -49,3 +50,13 @@ const SiderComponent = ({ selectFolder, resetFilters, setMenu, setMenuData, setS
 }
 
 export default SiderComponent;
+
+// selectFolder, resetFilters, setMenu, setMenuData, setShow, setFolderData
+SiderComponent.propTypes = {
+    selectFolder: PropTypes.func.isRequired,
+    resetFilters: PropTypes.func.isRequired,
+    setMenu: PropTypes.func.isRequired,
+    setMenuData: PropTypes.func.isRequired,
+    setShow: PropTypes.func.isRequired,
+    setFolderData: PropTypes.func.isRequired,
+}

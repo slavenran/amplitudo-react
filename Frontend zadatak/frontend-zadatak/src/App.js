@@ -13,7 +13,7 @@ function App() {
     localStorage.setItem('documentList', JSON.stringify(documentList));
   }
 
-  // get max id currently in local storage
+  // get max file id currently in local storage
   const docList = JSON.parse(localStorage.getItem('documentList'));
   setFileMaxId(docList[docList.length-1].id);
 

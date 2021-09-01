@@ -5,6 +5,7 @@ import { useRefresh } from '../../../context/RefreshTableContext';
 import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
 import Button from 'antd/lib/button';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import style from '../Create.module.scss';
 
@@ -117,3 +118,8 @@ const CreateFileForm = ({ setShowModal, folderData }) => {
 }
 
 export default CreateFileForm;
+
+CreateFileForm.propTypes = {
+    setShowModal: PropTypes.func.isRequired,
+    folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
+}

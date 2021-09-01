@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { useWidth } from '../../context/WidthContext';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Divider from 'antd/lib/divider';
 import Button from 'antd/lib/button';
 import FileIcon from './fileIcon/FileIcon';
-import FileModalForm from './fileModalForm/FileModalForm';
 import DetailsTop from './detailsTop/DetailsTop';
 import DetailsBottom from './detailsBottom/DetailsBottom';
+import PropTypes from 'prop-types';
 import style from '../content/Content.module.scss';
+
+const FileModalForm = React.lazy(() => import('./fileModalForm/FileModalForm'));
 
 const FileDetails = ({ fileData, setFileData }) => {
 
@@ -28,9 +30,9 @@ const FileDetails = ({ fileData, setFileData }) => {
                     </Col>
                     {
                         width >= 1300 &&
-                            <Col className={style.divider} span={9}>
-                                <Divider />
-                            </Col>
+                        <Col className={style.divider} span={9}>
+                            <Divider />
+                        </Col>
                     }
                     <Col span={width >= 1300 ? width >= 1500 ? 5 : 6 : 12}>
                         <Button className={style.editStyle} type="text" onClick={() => setIsModalVisible(true)}>IZMIJENI</Button>
@@ -41,6 +43,7 @@ const FileDetails = ({ fileData, setFileData }) => {
         </Row>
         {
             isModalVisible &&
+            <Suspense fallback={<div>Loading...</div>}>
                 <FileModalForm
                     isModalVisible={isModalVisible}
                     handleOk={() => setIsModalVisible(false)}
@@ -48,8 +51,14 @@ const FileDetails = ({ fileData, setFileData }) => {
                     fileData={fileData}
                     setFileData={(e) => setFileData(e)}
                     icon={FileIcon} />
+            </Suspense>
         }
     </div>
 }
 
 export default FileDetails;
+
+FileDetails.propTypes = {
+    fileData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+    setFileData: PropTypes.func.isRequired
+}

@@ -6,6 +6,7 @@ import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
 import Select from 'antd/lib/select';
 import Button from 'antd/lib/button';
+import PropTypes from 'prop-types';
 import style from '../Form.module.scss';
 
 const { Option } = Select;
@@ -63,3 +64,10 @@ const CreateFieldModal = ({ showAddField, setShowAddField, setFieldData }) => {
 }
 
 export default CreateFieldModal;
+
+// showAddField, setShowAddField, setFieldData
+CreateFieldModal.propTypes = {
+    showAddField: PropTypes.bool.isRequired,
+    setShowAddField: PropTypes.func.isRequired,
+    setFieldData: PropTypes.func.isRequired
+}

@@ -6,6 +6,7 @@ import './Table.scss';
 import moment from 'moment';
 import columns from '../../constants/tableColumns';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import PropTypes from 'prop-types';
 import setFileMaxId from '../../functions/fileMaxId';
 
 const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
@@ -55,3 +56,11 @@ const DataTable = ({ folderData, setFileData, searchValue, activeRow, setActiveR
 }
 
 export default DataTable;
+
+DataTable.propTypes = {
+  folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+  setFileData: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  activeRow: PropTypes.number,
+  setActiveRow: PropTypes.func.isRequired
+}

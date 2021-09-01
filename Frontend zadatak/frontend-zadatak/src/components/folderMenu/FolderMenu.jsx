@@ -1,6 +1,7 @@
 import React from 'react';
 import OutsideClickHandler from 'react-outside-click-handler';
 import Button from 'antd/lib/button';
+import PropTypes from 'prop-types';
 
 const FolderMenu = ({ pageX, pageY, folderData, setMenu, setShow, setFolderData }) => {
 
@@ -24,3 +25,12 @@ const FolderMenu = ({ pageX, pageY, folderData, setMenu, setShow, setFolderData 
 }
 
 export default FolderMenu;
+
+FolderMenu.propTypes = {
+    pageX: PropTypes.number.isRequired,
+    pageY: PropTypes.number.isRequired,
+    folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+    setMenu: PropTypes.func.isRequired,
+    setShow: PropTypes.func.isRequired,
+    setFolderData: PropTypes.func.isRequired
+}

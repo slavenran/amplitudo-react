@@ -5,6 +5,7 @@ import MailOutlined from '@ant-design/icons/MailOutlined';
 import Button from 'antd/lib/button';
 import FileIcon from '../fileIcon/FileIcon';
 import downloadFile from '../../../functions/downloadFile';
+import PropTypes from 'prop-types';
 import style from '../../content/Content.module.scss'
 
 const DetailsTop = ({ fileData }) => {
@@ -28,3 +29,7 @@ const DetailsTop = ({ fileData }) => {
 }
 
 export default DetailsTop;
+
+DetailsTop.propTypes = {
+    fileData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
+}

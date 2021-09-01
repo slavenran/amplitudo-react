@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
+import PropTypes from 'prop-types';
 import style from '../content/Content.module.scss';
 
 const DirectoryDetails = ({ folderData, isDoc }) => {
@@ -23,3 +24,8 @@ const DirectoryDetails = ({ folderData, isDoc }) => {
 }
 
 export default DirectoryDetails;
+
+DirectoryDetails.propTypes = {
+    folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+    isDoc: PropTypes.bool.isRequired
+}

@@ -5,6 +5,7 @@ import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
 import Button from 'antd/lib/button';
 import Select from 'antd/lib/select';
+import PropTypes from 'prop-types';
 import updateTree from '../../../functions/updateTree';
 import style from '../Create.module.scss';
 
@@ -106,3 +107,8 @@ const CreateFolderForm = ({ setShowModal, folderData }) => {
 }
 
 export default CreateFolderForm;
+
+CreateFolderForm.propTypes = {
+    setShowModal: PropTypes.func.isRequired,
+    folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
+}

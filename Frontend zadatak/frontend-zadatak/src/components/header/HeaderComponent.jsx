@@ -3,8 +3,9 @@ import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Input from 'antd/lib/input';
 import SearchOutlined from '@ant-design/icons/SearchOutlined'
-import style from './Header.module.scss';
+import PropTypes from 'prop-types';
 import ImageComponent from '../image/ImageComponent';
+import style from './Header.module.scss';
 
 const HeaderComponent = ({ currentFolder, showSearch, searchValue, setSearch }) => {
     return <Row className={style.rowStyle}>
@@ -32,3 +33,10 @@ const HeaderComponent = ({ currentFolder, showSearch, searchValue, setSearch }) 
 }
 
 export default HeaderComponent;
+
+HeaderComponent.propTypes = {
+    currentFolder: PropTypes.string,
+    showSearch: PropTypes.bool.isRequired,
+    searchValue: PropTypes.string.isRequired,
+    setSearch: PropTypes.func.isRequired
+}

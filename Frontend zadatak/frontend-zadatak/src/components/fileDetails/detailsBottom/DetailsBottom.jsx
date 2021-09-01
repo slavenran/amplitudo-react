@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import style from '../../content/Content.module.scss'
 
 const DetailsBottom = ({ fileData }) => {
@@ -17,3 +18,7 @@ const DetailsBottom = ({ fileData }) => {
 }
 
 export default DetailsBottom;
+
+DetailsBottom.propTypes = {
+    fileData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
+}

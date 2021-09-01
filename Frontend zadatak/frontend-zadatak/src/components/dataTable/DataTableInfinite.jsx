@@ -4,6 +4,7 @@ import { useVT } from 'virtualizedtableforantd4';
 import moment from 'moment';
 import Table from 'antd/lib/table';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import PropTypes from 'prop-types';
 import columns from '../../constants/tableColumns';
 import style from './Table.module.scss';
 import './Table.scss';
@@ -15,7 +16,7 @@ const scrollConfig = {
 
 const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue, activeRow, setActiveRow }) => {
 
-    const [lastId, setLastId] = useState(5);    // preserves the last fetched id of document array
+    const [lastId, setLastId] = useState(7);    // preserves the last fetched id of document array
     const [allData, setAllData] = useState();   // complete data
     const [data, setData] = useState(allData?.slice(0, lastId)); // chopped data
 
@@ -25,11 +26,10 @@ const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue
         if (allData) {
             if (allData[lastId + 5]) {
                 setData(data.concat(allData?.slice(lastId, lastId + 5)));
-                setLastId(prevState => prevState + 5);
             } else if (lastId < allData.length) {
                 setData(data.concat(allData?.slice(lastId, allData?.length)));
-                setLastId(prevState => prevState + 5);
             }
+            setLastId(prevState => prevState + 5);
         }
     }
 
@@ -49,7 +49,7 @@ const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue
     );
 
     useEffect(() => {
-        setLastId(5);
+        setLastId(7);
         setData(null);
         setAllData(null);
         setTimeout(() => {
@@ -96,3 +96,11 @@ const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue
 }
 
 export default DataTableInfinite;
+
+DataTableInfinite.propTypes = {
+    folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+    setFileData: PropTypes.func.isRequired,
+    searchValue: PropTypes.string.isRequired,
+    activeRow: PropTypes.number,
+    setActiveRow: PropTypes.func.isRequired
+}

@@ -11,12 +11,13 @@ import Input from 'antd/lib/input';
 import Divider from 'antd/lib/divider';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import NewField from './newField/NewField';
+import PropTypes from 'prop-types';
 import style from './Form.module.scss';
 import './Modal.scss';
 
 const FileModalForm = ({ isModalVisible, handleOk, handleCancel, fileData, icon: Icon, setFileData }) => {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
-
+    
     const [width] = useWidth();
     const { setRefreshData } = useRefresh();
 
@@ -134,3 +135,14 @@ const FileModalForm = ({ isModalVisible, handleOk, handleCancel, fileData, icon:
 }
 
 export default FileModalForm;
+
+// isModalVisible, handleOk, handleCancel, fileData, icon: Icon, setFileData
+
+FileModalForm.propTypes = {
+    isModalVisible: PropTypes.bool.isRequired,
+    handleOk: PropTypes.func.isRequired,
+    handleCancel: PropTypes.func.isRequired,
+    fileData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+    icon: PropTypes.func.isRequired,
+    setFileData: PropTypes.func.isRequired,
+}
