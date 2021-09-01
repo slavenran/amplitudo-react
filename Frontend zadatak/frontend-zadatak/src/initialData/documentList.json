@@ -793,5 +793,395 @@
                 "type": "text"
             }
         }
+    },
+    {
+        "id": 21,
+        "name": "recepti od strine",
+        "number": 432,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "Slaven Ranisavljevic",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/recepti od strine.docx",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 22,
+        "name": "pogledani filmovi",
+        "number": 22113,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "John",
+        "type": "Xls dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/pogledani filmovi.xlsx",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 23,
+        "name": "najbolje papuce",
+        "number": 778,
+        "status": "Updated",
+        "version": 1,
+        "author": "Slaven Ranisavljevic",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/najbolje papuce.docx",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 24,
+        "name": "English II - Gen Z",
+        "number": 998,
+        "status": "Gotovo",
+        "version": 1,
+        "author": "Slaven Ranisavljevic",
+        "type": "Prezentacija",
+        "date": "25.03.2022.",
+        "path": "/documents/Gen Z.pptx",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 25,
+        "name": "Brojevi dormea",
+        "number": 231,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "Slaven Ranisavljevic",
+        "type": "Tabela",
+        "date": "25.03.2022.",
+        "path": "/documents/brojevi dormea.xlsx",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 26,
+        "name": "cijene dojca po kaficima",
+        "number": 4335,
+        "status": "Beskorisno",
+        "version": 1,
+        "author": "Podgoricanin",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/dojcevi.xlsx",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 27,
+        "name": "Inflacija",
+        "number": 3411,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "Neko pametan",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/inflacija.pdf",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 28,
+        "name": "JavaScript - The Good Parts",
+        "number": 10013232100,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "Douglas Crockford",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/JavaScript - The Good Parts - Douglas Crockford - May 2008.pdf",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 29,
+        "name": "You Don't Know JS Yet",
+        "number": 2143141,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "Englishman",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/You Don't Know JS Yet.pdf",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
+    },
+    {
+        "id": 30,
+        "name": "Hooks cheatsheet",
+        "number": 43232,
+        "status": "U upotrebi",
+        "version": 1,
+        "author": "IDK",
+        "type": "Tekstualni dokument",
+        "date": "25.03.2022.",
+        "path": "/documents/cheat-sheet-xebia.pdf",
+        "parentDir": 5,
+        "extra": {
+            "effectiveNumber": {
+                "title": "Djelovodni broj",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "description": {
+                "title": "Opis",
+                "value": "Lorem Lorem Ipsum Ipsum",
+                "type": "text"
+            },
+            "subject": {
+                "title": "Subjekt",
+                "value": "Loreeeeeeeeem",
+                "type": "text"
+            },
+            "documentSign": {
+                "title": "Oznaka dokumenta",
+                "value": "01/2-23/1-19",
+                "type": "text"
+            },
+            "receptionMode": {
+                "title": "Nacin prijema",
+                "value": "Ipsuuuuuuum",
+                "type": "text"
+            }
+        }
     }
 ]

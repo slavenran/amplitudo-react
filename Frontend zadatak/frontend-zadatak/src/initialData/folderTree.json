@@ -19,7 +19,7 @@
                 "parentFolder": [
                     {
                         "id": 3,
-                        "name": "Glavni folder",
+                        "name": "Glavni folder (!)",
                         "sector": "Razno",
                         "creationDate": "17.06.2019.",
                         "creator": "Slaven Ranisavljevic",
@@ -38,7 +38,7 @@
                         "parentFolder": [
                             {
                                 "id": 5,
-                                "name": "Novi folder 1",
+                                "name": "Novi folder (!)",
                                 "sector": "Lorem Ipsum",
                                 "creationDate": "17.06.2019.",
                                 "creator": "Marko Markovic",
