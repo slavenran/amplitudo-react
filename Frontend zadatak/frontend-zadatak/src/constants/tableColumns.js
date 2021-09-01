@@ -15,7 +15,7 @@ const columns = [
         title: 'Status',
         dataIndex: 'status',
         sorter: {
-            compare: (a, b) => a.status - b.status,
+            compare: (a, b) => a.status.localeCompare(b.status),
             multiple: 4,
         },
     },
@@ -23,7 +23,7 @@ const columns = [
         title: 'Autor',
         dataIndex: 'author',
         sorter: {
-            compare: (a, b) => a.author - b.author,
+            compare: (a, b) => a.author.localeCompare(b.author),
             multiple: 3,
         },
     },
@@ -31,7 +31,7 @@ const columns = [
         title: 'Tip',
         dataIndex: 'type',
         sorter: {
-            compare: (a, b) => a.type - b.type,
+            compare: (a, b) => a.type.localeCompare(b.type),
             multiple: 2,
         },
     },

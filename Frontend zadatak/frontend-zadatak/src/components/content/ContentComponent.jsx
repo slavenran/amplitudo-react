@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import Row from 'antd/lib/row';
 import Col from 'antd/lib/col';
 import Button from 'antd/lib/button';
-import DataTable from '../dataTable/DataTable';
+import DataTableInfinite from '../dataTable/DataTableInfinite';
 import DirectoryDetails from '../directoryDetails/DirectoryDetails';
 import FileDetails from '../fileDetails/FileDetails';
 import FormModal from '../modal/FormModal';
 import CreateFileForm from '../createForms/createFileForm/CreateFileForm';
 import style from './Content.module.scss';
-import DataTableInfi from '../dataTable/DataTableInfi';
 
 const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFileData, activeRow, setActiveRow }) => {
 
@@ -28,7 +27,7 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
                 {
                     showFiles ?
                         <Col className={style.colStyle}>
-                            <DataTableInfi
+                            <DataTableInfinite
                                 folderData={folderData}
                                 searchValue={searchValue}
                                 setFileData={(data) => setFileData(data)}
