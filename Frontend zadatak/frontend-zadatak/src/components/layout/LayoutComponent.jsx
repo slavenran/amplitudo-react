@@ -20,7 +20,7 @@ const LayoutComponent = () => {
     // states for managing folder menu and adding of new folder
     const [showMenu, setShowMenu] = useState(false);
     const [menuData, setMenuData] = useState();
-    const [showModal, setShowModal] = useState(false);
+    const [showFolderCreationModal, setShowFolderCreationModal] = useState(false);
     const [folderData, setFolderData] = useState(null);
 
     const changeFolder = (folderNode) => {
@@ -51,17 +51,10 @@ const LayoutComponent = () => {
                 <SiderComponent
                     selectFolder={(title) => changeFolder(title)}
                     resetFilters={() => resetFilters()}
-                    setMenu={(e) => setShowMenu(e)}
+                    setShowMenu={(e) => setShowMenu(e)}
                     setMenuData={(e) => setMenuData(e)}
-                    setShow={(e) => setShowModal(e)}
+                    setShowFolderCreationModal={(e) => setShowFolderCreationModal(e)}
                     setFolderData={(e) => setFolderData(e)} />
-                {/* <SiderComponentAsync
-                    selectFolder={(title) => changeFolder(title)}
-                    resetFilters={() => resetFilters()}
-                    setMenu={(e) => setShowMenu(e)}
-                    setMenuData={(e) => setMenuData(e)}
-                    setShow={(e) => setShowModal(e)}
-                    setFolderData={(e) => setFolderData(e)} /> */}
             </div>
         </Sider>
         <Layout className={style.contentLayout}>
@@ -84,11 +77,11 @@ const LayoutComponent = () => {
             </Content>
         </Layout>
         {showMenu && menuData}
-        {showModal &&
+        {showFolderCreationModal &&
             <Suspense fallback={<></>}>
-                <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
+                <FormModal show={showFolderCreationModal} setShow={(e) => setShowFolderCreationModal(e)}>
                     <Suspense fallback={<div>Loading...</div>}>
-                        <CreateFolderForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
+                        <CreateFolderForm setShowModal={(e) => setShowFolderCreationModal(e)} folderData={folderData} />
                     </Suspense>
                 </FormModal>
             </Suspense>

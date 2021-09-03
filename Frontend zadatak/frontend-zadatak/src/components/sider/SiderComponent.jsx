@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRefresh } from '../../context/RefreshTableContext';
 import transformJSONToTreeData from '../../functions/transformJSONToTreeData';
 import FolderMenu from '../folderMenu/FolderMenu';
@@ -9,11 +9,11 @@ import './TreeNode.scss';
 
 const { DirectoryTree } = Tree;
 
-const SiderComponent = ({ selectFolder, resetFilters, setMenu, setMenuData, setShow, setFolderData }) => {
+const SiderComponent = ({ selectFolder, resetFilters, setShowMenu, setMenuData, setShowFolderCreationModal, setFolderData }) => {
     // fetch and transform data into antd tree format
-    const dataTree = transformJSONToTreeData(JSON.parse(localStorage.getItem("folderTree")));
+    const [dataTree, setDataTree] = useState();
 
-    const { setRefreshData } = useRefresh();    // refresh data on folder select
+    const { refreshData, setRefreshData } = useRefresh();    // refresh data on folder select
 
     const onSelect = (_, info) => {
         selectFolder(info?.node);
@@ -29,11 +29,15 @@ const SiderComponent = ({ selectFolder, resetFilters, setMenu, setMenuData, setS
                 pageY={event?.clientY}
                 folderData={node}
                 setFolderData={(e) => setFolderData(e)}
-                setMenu={(e) => setMenu(e)}
-                setShow={(e) => setShow(e)} />);
-            setMenu(prevState => !prevState);
+                setShowMenu={(e) => setShowMenu(e)}
+                setShowFolderCreationModal={(e) => setShowFolderCreationModal(e)} />);
+            setShowMenu(prevState => !prevState);
         }
     }
+
+    useEffect(() => {
+        setDataTree(transformJSONToTreeData(JSON.parse(localStorage.getItem("folderTree"))));
+    }, [refreshData])
 
     return <DirectoryTree
         className={style.directoryStyle}
@@ -50,8 +54,8 @@ export default SiderComponent;
 SiderComponent.propTypes = {
     selectFolder: PropTypes.func.isRequired,
     resetFilters: PropTypes.func.isRequired,
-    setMenu: PropTypes.func.isRequired,
+    setShowMenu: PropTypes.func.isRequired,
     setMenuData: PropTypes.func.isRequired,
-    setShow: PropTypes.func.isRequired,
+    setShowFolderCreationModal: PropTypes.func.isRequired,
     setFolderData: PropTypes.func.isRequired,
 }

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useRefresh } from '../../context/RefreshTableContext';
 import Tree from 'antd/lib/tree';
 import { FolderOpenFilled, FolderFilled } from '@ant-design/icons';
-import style from './Sider.module.scss';
-import './TreeNode.scss';
 import FolderMenu from '../folderMenu/FolderMenu';
 import setFolderMaxId, { getFolderMaxId } from '../../functions/folderMaxId';
+import style from './Sider.module.scss';
+import './TreeNode.scss';
 
 const { DirectoryTree } = Tree;
 
@@ -31,7 +31,7 @@ function updateTreeData(list, key, children) {
     });
 }
 
-const SiderComponentAsync = ({ selectFolder, resetFilters, setMenu, setMenuData, setShow, setFolderData }) => {
+const SiderComponentAsync = ({ selectFolder, resetFilters, setShowMenu, setMenuData, setShowFolderCreationModal, setFolderData }) => {
     const dataTree = JSON.parse(localStorage.getItem("folderTree"));
     // fetch and transform data into antd tree format
 
@@ -108,8 +108,8 @@ const SiderComponentAsync = ({ selectFolder, resetFilters, setMenu, setMenuData,
     const onRightClick = ({ event, node }) => {
         // show folder menu only if folder is an organizer and pass it folder data
         if (node?.folderType === "organizer") {
-            setMenuData(<FolderMenu pageX={event?.clientX} pageY={event?.clientY} folderData={node} setFolderData={(e) => setFolderData(e)} setMenu={(e) => setMenu(e)} setShow={(e) => setShow(e)} />);
-            setMenu(prevState => !prevState);
+            setMenuData(<FolderMenu pageX={event?.clientX} pageY={event?.clientY} folderData={node} setFolderData={(e) => setFolderData(e)} setMenu={(e) => setShowMenu(e)} setShow={(e) => setShowFolderCreationModal(e)} />);
+            setShowMenu(prevState => !prevState);
         }
     }
 

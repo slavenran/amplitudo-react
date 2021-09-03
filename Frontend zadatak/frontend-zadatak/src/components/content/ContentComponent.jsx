@@ -12,7 +12,7 @@ const FormModal = React.lazy(() => import('../modal/FormModal'));
 const CreateFileForm = React.lazy(() => import('../createForms/createFileForm/CreateFileForm'));
 
 const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFileData, activeRow, setActiveRow }) => {
-    const [showModal, setShowModal] = useState(false);    // state for file creation modal
+    const [showNewFileModal, setShowNewFileModal] = useState(false);    // state for file creation modal
     
     return <Row className={style.bigRow}>
         <Col className={style.leftCol} span={fileData ? 15 : 24}>
@@ -35,7 +35,7 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
                                 setFileData={(data) => setFileData(data)}
                                 activeRow={activeRow}
                                 setActiveRow={(e) => setActiveRow(e)} />
-                            <Button style={{ borderRadius: 5, marginTop: 10 }} onClick={() => setShowModal(true)}>Napravi novi fajl</Button>
+                            <Button style={{ borderRadius: 5, marginTop: 10 }} onClick={() => setShowNewFileModal(true)}>Napravi novi fajl</Button>
                         </Suspense>
                     </Col>
                 }
@@ -50,11 +50,11 @@ const ContentComponent = ({ showFiles, folderData, searchValue, fileData, setFil
             </Col>
         }
         {
-            showModal &&
+            showNewFileModal &&
             <Suspense fallback={<div>Loading...</div>}>
-                <FormModal show={showModal} setShow={(e) => setShowModal(e)}>
+                <FormModal show={showNewFileModal} setShow={(e) => setShowNewFileModal(e)}>
                     <Suspense fallback={<div>Loading...</div>}>
-                        <CreateFileForm setShowModal={(e) => setShowModal(e)} folderData={folderData} />
+                        <CreateFileForm setShowModal={(e) => setShowNewFileModal(e)} folderData={folderData} />
                     </Suspense>
                 </FormModal>
             </Suspense>

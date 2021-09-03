@@ -25,14 +25,15 @@ const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue
     const onFetch = () => {
         if (allData) {
             if (allData[lastId + 5]) {
-                setData(data.concat(allData?.slice(lastId, lastId + 5)));
+                setData(data.concat(allData?.slice(lastId, lastId + 5)));   // if there are 5 or more rows left to load
             } else if (lastId < allData.length) {
-                setData(data.concat(allData?.slice(lastId, allData?.length)));
+                setData(data.concat(allData?.slice(lastId, allData?.length)));  // if there are less than 5 rows to load
             }
             setLastId(prevState => prevState + 5);
         }
     }
 
+    // fetch data on scroll
     const [vt] = useVT(
         () => ({
             onScroll: ({ isEnd }) => {
@@ -49,6 +50,7 @@ const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue
     );
 
     useEffect(() => {
+        // reset rows when refresh occurs
         setLastId(7);
         setData(null);
         setAllData(null);
@@ -98,6 +100,7 @@ const DataTableInfinite = ({ debug = false, folderData, setFileData, searchValue
 export default DataTableInfinite;
 
 DataTableInfinite.propTypes = {
+    debug: PropTypes.bool,
     folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
     setFileData: PropTypes.func.isRequired,
     searchValue: PropTypes.string.isRequired,

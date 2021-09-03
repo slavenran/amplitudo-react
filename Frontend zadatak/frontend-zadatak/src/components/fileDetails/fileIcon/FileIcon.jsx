@@ -26,5 +26,5 @@ const FileIcon = ({ fileType }) => {
 export default FileIcon;
 
 FileIcon.propTypes = {
-    fileType: PropTypes.string.isRequired
+    fileType: PropTypes.string
 }

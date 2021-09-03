@@ -3,15 +3,15 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import Button from 'antd/lib/button';
 import PropTypes from 'prop-types';
 
-const FolderMenu = ({ pageX, pageY, folderData, setMenu, setShow, setFolderData }) => {
+const FolderMenu = ({ pageX, pageY, folderData, setShowMenu, setShowFolderCreationModal, setFolderData }) => {
 
     const handleClick = () => {
         setFolderData(folderData);
-        setShow(true);
-        setMenu(false);
+        setShowFolderCreationModal(true);
+        setShowMenu(false);
     }
 
-    return <OutsideClickHandler onOutsideClick={() => setMenu(false)}>
+    return <OutsideClickHandler onOutsideClick={() => setShowMenu(false)}>
         <div className="self-right-menu">
             <Button style={{
                 position: 'absolute',
@@ -30,7 +30,7 @@ FolderMenu.propTypes = {
     pageX: PropTypes.number.isRequired,
     pageY: PropTypes.number.isRequired,
     folderData: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
-    setMenu: PropTypes.func.isRequired,
-    setShow: PropTypes.func.isRequired,
+    setShowMenu: PropTypes.func.isRequired,
+    setShowFolderCreationModal: PropTypes.func.isRequired,
     setFolderData: PropTypes.func.isRequired
 }
